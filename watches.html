@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>All Watches | Lorent - Quality Watches at Affordable Prices</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* Root Variables */
+    :root {
+      --primary-black: #1a1a1a;
+      --soft-black: #2c2c2c;
+      --pure-white: #ffffff;
+      --light-gray: #f5f5f5;
+      --border-gray: #e0e0e0;
+      --sale-red: #e53e3e;
+      --dark-red: #c53030;
+      --success-green: #38a169;
+      --text-gray: #4a5568;
+      --bestseller-gold: #f6ad55;
+      
+      --font-primary: 'Inter', sans-serif;
+    }
+
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--pure-white);
+      color: var(--primary-black);
+      font-family: var(--font-primary);
+      line-height: 1.6;
+    }
+
+    /* Top Offer Bar */
+    .offer-bar {
+      background: var(--sale-red);
+      color: var(--pure-white);
+      text-align: center;
+      padding: 1rem;
+      font-weight: 700;
+      font-size: 1rem;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.8; }
+    }
+
+    /* Header */
+    header {
+      background: var(--pure-white);
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 3px solid var(--primary-black);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 12px rgba(26, 26, 26, 0.1);
+    }
+
+    .logo {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--primary-black);
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+      text-decoration: none;
+      letter-spacing: 2px;
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--primary-black);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    nav a:hover, nav a.active {
+      background: var(--primary-black);
+      color: var(--pure-white);
+    }
+
+    nav a.sale-link {
+      background: var(--sale-red);
+      color: var(--pure-white);
+      font-weight: 700;
+      animation: bounce 1s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-5px); }
+      60% { transform: translateY(-3px); }
+    }
+
+    .basket-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--soft-black);
+      color: var(--pure-white);
+      padding: 0.8rem 1.5rem;
+      border-radius: 30px;
+      font-weight: 700;
+      box-shadow: 0 4px 12px rgba(44, 44, 44, 0.3);
+    }
+
+    .basket-link:hover {
+      background: var(--primary-black);
+      transform: translateY(-2px);
+    }
+
+    #basket-count {
+      background: var(--sale-red);
+      color: var(--pure-white);
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    /* Page Header */
+    .page-header {
+      background: linear-gradient(135deg, var(--primary-black) 0%, var(--soft-black) 100%);
+      color: var(--pure-white);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .page-header h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      letter-spacing: 1px;
+    }
+
+    .page-header p {
+      font-size: 1.3rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Filter Navigation */
+    .filter-nav {
+      background: var(--light-gray);
+      padding: 2rem;
+      border-bottom: 2px solid var(--border-gray);
+      position: sticky;
+      top: 89px;
+      z-index: 90;
+    }
+
+    .filter-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: var(--pure-white);
+      color: var(--primary-black);
+      border: 2px solid var(--border-gray);
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--sale-red);
+      color: var(--pure-white);
+      border-color: var(--sale-red);
+      transform: translateY(-2px);
+    }
+
+    /* Main Content */
+    .main-content {
+      padding: 4rem 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .collection-section {
+      margin-bottom: 5rem;
+    }
+
+    .collection-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--primary-black);
+      margin-bottom: 1rem;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+
+    .collection-subtitle {
+      font-size: 1.2rem;
+      color: var(--text-gray);
+      text-align: center;
+      margin-bottom: 3rem;
+      font-style: italic;
+    }
+
+    .watch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .watch-card {
+      background: var(--pure-white);
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 2px solid var(--border-gray);
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .watch-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+      border-color: var(--sale-red);
+    }
+
+    .watch-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--pure-white);
+    }
+
+    .bestseller-badge {
+      background: var(--bestseller-gold);
+    }
+
+    .sale-badge {
+      background: var(--sale-red);
+    }
+
+    .new-badge {
+      background: var(--success-green);
+    }
+
+.watch-image {
+  width: 100%;
+  height: 250px; /* this sets a fixed height */
+  background: var(--light-gray);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  border: 2px solid var(--border-gray);
+}
+
+    .watch-image img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+    .watch-card h3 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--primary-black);
+    }
+
+    .watch-price {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--sale-red);
+      margin-bottom: 1rem;
+    }
+
+    .price-original {
+      text-decoration: line-through;
+      color: var(--text-gray);
+      font-size: 1.2rem;
+      margin-right: 0.5rem;
+    }
+
+    .watch-card p {
+      color: var(--text-gray);
+      margin-bottom: 2rem;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .watch-features {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .feature-tag {
+      background: var(--light-gray);
+      color: var(--primary-black);
+      padding: 0.3rem 0.8rem;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border: 1px solid var(--border-gray);
+    }
+
+    .add-basket-btn {
+      background: var(--soft-black);
+      color: var(--pure-white);
+      border: none;
+      padding: 1.2rem 2rem;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-radius: 30px;
+      width: 100%;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .add-basket-btn:hover {
+      background: var(--primary-black);
+      transform: translateY(-2px);
+    }
+
+    .add-basket-btn:disabled {
+      background: var(--success-green);
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .buy-now-btn {
+      background: var(--sale-red);
+      color: var(--pure-white);
+      border: none;
+      padding: 1.2rem 2rem;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-radius: 30px;
+      width: 100%;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 1rem;
+    }
+
+    .buy-now-btn:hover {
+      background: var(--dark-red);
+      transform: translateY(-2px);
+    }
+
+    /* Hidden sections for filtering */
+    .collection-section.hidden {
+      display: none;
+    }
+
+    /* Chat Styles */
+    #chat-icon {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      background: var(--sale-red);
+      color: var(--pure-white);
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      font-size: 1.8rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      z-index: 2000;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 25px rgba(229, 62, 62, 0.4);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    #chat-icon:hover {
+      background: var(--primary-black);
+      transform: scale(1.1);
+    }
+
+    #chat-box {
+      position: fixed;
+      bottom: 120px;
+      right: 36px;
+      width: 400px;
+      background: var(--pure-white);
+      color: var(--primary-black);
+      border-radius: 15px;
+      box-shadow: 0 25px 70px rgba(0,0,0,0.2);
+      z-index: 2000;
+      overflow: hidden;
+      border: 3px solid var(--sale-red);
+    }
+
+    #chat-box.hidden {
+      display: none;
+    }
+
+    .chat-header {
+      background: var(--sale-red);
+      color: var(--pure-white);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .chat-header h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .chat-body {
+      padding: 2rem;
+    }
+
+    .chat-option {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      padding: 2rem;
+      background: var(--light-gray);
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      border: 2px solid var(--border-gray);
+    }
+
+    .chat-option:hover {
+      background: var(--pure-white);
+      border-color: var(--sale-red);
+      transform: translateY(-2px);
+    }
+
+    .voice-chat-btn {
+      background: var(--soft-black);
+      color: var(--pure-white);
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-radius: 25px;
+      text-transform: uppercase;
+    }
+
+    .voice-chat-btn:hover {
+      background: var(--primary-black);
+    }
+
+    #close-chat {
+      width: 100%;
+      background: var(--light-gray);
+      color: var(--primary-black);
+      border: none;
+      padding: 1.5rem;
+      cursor: pointer;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      border-top: 3px solid var(--border-gray);
+      text-transform: uppercase;
+      font-size: 1rem;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      header {
+        padding: 1.5rem;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .logo {
+        font-size: 2rem;
+      }
+
+      nav {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .page-header h1 {
+        font-size: 2.5rem;
+      }
+
+      .page-header p {
+        font-size: 1.1rem;
+      }
+
+      .filter-nav {
+        top: 140px;
+      }
+
+      .main-content {
+        padding: 3rem 1.5rem;
+      }
+
+      .watch-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .watch-features {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      #chat-box {
+        width: calc(100vw - 40px);
+        right: 20px;
+        left: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="offer-bar">
+    🎉 FLASH SALE: 40% OFF All Watches + FREE Shipping! Limited Time Only! 🎉
+  </div>
+
+  <header>
+    <a href="index.html" class="logo">LORENT</a>
+    <nav>
+      <a href="watches.html">All Watches</a>
+      <a href="about.html">About Us</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="sale.html" class="sale-link">MEGA SALE</a>
+      <a href="basket.html" class="basket-link">
+        <span>🛒</span>
+        <span>Cart</span>
+        <span id="basket-count">0</span>
+      </a>
+    </nav>
+  </header>
+
+  <section class="page-header">
+    <h1>Our Watch Collection</h1>
+    <p>Quality timepieces for every style and budget. Find your perfect watch today.</p>
+  </section>
+
+  <nav class="filter-nav">
+    <div class="filter-container">
+      <button class="filter-btn active" data-filter="all">All Watches</button>
+      <button class="filter-btn" data-filter="classic">Classic</button>
+      <button class="filter-btn" data-filter="contemporary">Contemporary</button>
+      <button class="filter-btn" data-filter="sport">Sport</button>
+      <button class="filter-btn" data-filter="special">Special Edition</button>
+    </div>
+  </nav>
+
+  <main class="main-content">
+   <!-- Classic Collection -->
+    <section id="classic" class="collection-section">
+  <h2 class="collection-title">Classic Collection</h2>
+  <p class="collection-subtitle">Timeless designs that never go out of style</p>
+
+  <div class="watch-grid">
+    <div class="watch-card">
+      <div class="watch-badge bestseller-badge">BESTSELLER</div>
+      <div class="watch-image"><img src="watch_images/Linea.png" alt="Linea Watch"></div>
+      <h3>Linea</h3>
+      <div class="watch-price">$149 <span class="price-original">$249</span></div>
+      <p>White dial, silver case, silver strap. For symmetry seekers.</p>
+      <div class="watch-features">
+        <span class="feature-tag">Quartz</span>
+        <span class="feature-tag">6mm</span>
+        <span class="feature-tag">Stainless Steel</span>
+      </div>
+      <button class="add-basket-btn" data-name="Linea">Add to Cart</button>
+      <button class="buy-now-btn">Buy Now</button>
+    </div>
+
+    <div class="watch-card">
+      <div class="watch-badge sale-badge">40% OFF</div>
+      <div class="watch-image"><img src="watch_images/Serene.png" alt="Serene Watch"></div>
+      <h3>Serene</h3>
+      <div class="watch-price">$89 <span class="price-original">$149</span></div>
+      <p>White dial, gold case, brown strap. Warm classic edge.</p>
+      <div class="watch-features">
+        <span class="feature-tag">Quartz</span>
+        <span class="feature-tag">6mm</span>
+        <span class="feature-tag">Leather Strap</span>
+      </div>
+      <button class="add-basket-btn" data-name="Serene">Add to Cart</button>
+      <button class="buy-now-btn">Buy Now</button>
+    </div>
+
+    <div class="watch-card">
+      <div class="watch-image"><img src="watch_images/Winchester.png" alt="Winchester Watch"></div>
+      <h3>Winchester</h3>
+      <div class="watch-price">$129</div>
+      <p>Eggshell dial, silver case, brown strap. Everyday elegance.</p>
+      <div class="watch-features">
+        <span class="feature-tag">Quartz</span>
+        <span class="feature-tag">Leather</span>
+        <span class="feature-tag">6mm</span>
+      </div>
+      <button class="add-basket-btn" data-name="Winchester">Add to Cart</button>
+      <button class="buy-now-btn">Buy Now</button>
+    </div>
+
+    <div class="watch-card">
+      <div class="watch-image"><img src="watch_images/Sheffield.png" alt="Sheffield Watch"></div>
+      <h3>Sheffield</h3>
+      <div class="watch-price">$179</div>
+      <p>Eggshell dial, silver case, black strap. Minimal & enduring.</p>
+      <div class="watch-features">
+        <span class="feature-tag">Quartz</span>
+        <span class="feature-tag">Slim</span>
+        <span class="feature-tag">Leather</span>
+      </div>
+      <button class="add-basket-btn" data-name="Sheffield">Add to Cart</button>
+      <button class="buy-now-btn">Buy Now</button>
+    </div>
+  </div>
+</section>
+
+
+    <!-- Contemporary Collection -->
+    <section id="contemporary" class="collection-section">
+  <h2 class="collection-title">Contemporary Collection</h2>
+  <p class="collection-subtitle">Modern designs for today's lifestyle</p>
+
+  <div class="watch-grid">
+    <div class="watch-card">
+      <div class="watch-badge new-badge">NEW</div>
+      <div class="watch-image"><img src="watch_images/Ophelia.png" alt="Ophelia Watch"></div>
+      <h3>Ophelia</h3>
+      <div class="watch-price">$119</div>
+      <p>White oval dial, gold case & bracelet. Elegant minimalism.</p>
+      <div class="watch-features">
+        <span class="feature-tag">Quartz</span>
+        <span class="feature-tag">6mm</span>
+        <span class="feature-tag">Gold Tone</span>
+      </div>
+      <button class="add-basket-btn" data-name="Ophelia">Add to Cart</button>
+      <button class="buy-now-btn">Buy Now</button>
+    </div>
+
+    <div class="watch-card">
+      <div class="watch-image"><img src="watch_images/Eterna.png" alt="Eterna Watch"></div>
+      <h3>Eterna</h3>
+      <div class="watch-price">$139</div>
+      <p>Eggshell dial, polished steel case & strap. Clean and modern.</p>
+      <div class="watch-features">
+        <span class="feature-tag">Quartz</span>
+        <span class="feature-tag">Steel</span>
+        <span class="feature-tag">Modern</span>
+      </div>
+      <button class="add-basket-btn" data-name="Eterna">Add to Cart</button>
+      <button class="buy-now-btn">Buy Now</button>
+    </div>
+
+    <div class="watch-card">
+      <div class="watch-badge sale-badge">35% OFF</div>
+      <div class="watch-image"><img src="watch_images/Lunaire Noir.png" alt="Lunaire Noir Watch"></div>
+      <h3>Lunaire Noir</h3>
+      <div class="watch-price">$159 <span class="price-original">$245</span></div>
+      <p>Mirror black dial, black mesh strap. Sleek sophistication.</p>
+      <div class="watch-features">
+        <span class="feature-tag">Quartz</span>
+        <span class="feature-tag">6mm</span>
+        <span class="feature-tag">Black Steel</span>
+      </div>
+      <button class="add-basket-btn" data-name="Lunaire Noir">Add to Cart</button>
+      <button class="buy-now-btn">Buy Now</button>
+    </div>
+
+    <div class="watch-card">
+      <div class="watch-image"><img src="watch_images/Lunaire Rose.png" alt="Lunaire Rosé Watch"></div>
+      <h3>Lunaire Rose</h3>
+      <div class="watch-price">$109</div>
+      <p>Rose mirror dial, rose mesh strap. Soft shine & style.</p>
+      <div class="watch-features">
+        <span class="feature-tag">Quartz</span>
+        <span class="feature-tag">6mm</span>
+        <span class="feature-tag">Rose Gold</span>
+      </div>
+      <button class="add-basket-btn" data-name="Lunaire Rose">Add to Cart</button>
+      <button class="buy-now-btn">Buy Now</button>
+    </div>
+  </div>
+</section>
+
+
+    <!-- Sport Collection -->
+   <section id="sport" class="collection-section">
+  <h2 class="collection-title">Sport Collection</h2>
+  <p class="collection-subtitle">Built for active lifestyles</p>
+
+  <div class="watch-grid">
+    <div class="watch-card">
+      <div class="watch-badge bestseller-badge">BESTSELLER</div>
+      <div class="watch-image"><img src="watch_images/Explorer.png" alt="Explorer Watch"></div>
+      <h3>Explorer</h3>
+      <div class="watch-price">$189</div>
+      <p>Black dial, 42mm steel case, WR 200m. Rugged & automatic.</p>
+      <div class="watch-features">
+        <span class="feature-tag">Automatic</span>
+        <span class="feature-tag">WR 200m</span>
+        <span class="feature-tag">Steel</span>
+      </div>
+      <button class="add-basket-btn" data-name="Explorer">Add to Cart</button>
+      <button class="buy-now-btn">Buy Now</button>
+    </div>
+
+    <div class="watch-card">
+      <div class="watch-image"><img src="watch_images/Dive Master.png" alt="Dive Master Watch"></div>
+      <h3>Dive Master</h3>
+      <div class="watch-price">$99</div>
+      <p>Blue dial, 44mm steel, WR 300m. For water sport lovers.</p>
+      <div class="watch-features">
+        <span class="feature-tag">Automatic</span>
+        <span class="feature-tag">WR 300m</span>
+        <span class="feature-tag">Diving</span>
+      </div>
+      <button class="add-basket-btn" data-name="Dive Master">Add to Cart</button>
+      <button class="buy-now-btn">Buy Now</button>
+    </div>
+
+    <div class="watch-card">
+      <div class="watch-badge sale-badge">50% OFF</div>
+      <div class="watch-image"><img src="watch_images/Field Ranger.png" alt="Field Ranger Watch"></div>
+      <h3>Field Ranger</h3>
+      <div class="watch-price">$149 <span class="price-original">$299</span></div>
+      <p>Green dial, 41mm matte case. Tough & tactical.</p>
+      <div class="watch-features">
+        <span class="feature-tag">Automatic</span>
+        <span class="feature-tag">WR 150m</span>
+        <span class="feature-tag">Field Style</span>
+      </div>
+      <button class="add-basket-btn" data-name="Field Ranger">Add to Cart</button>
+      <button class="buy-now-btn">Buy Now</button>
+    </div>
+
+    <div class="watch-card">
+      <div class="watch-image"><img src="watch_images/Nightfall.png" alt="Nightfall Watch"></div>
+      <h3>Nightfall</h3>
+      <div class="watch-price">$219</div>
+      <p>Black enamel dial, WR 100m, 9.5mm case. Sporty & sleek.</p>
+      <div class="watch-features">
+        <span class="feature-tag">Automatic</span>
+        <span class="feature-tag">WR 100m</span>
+        <span class="feature-tag">Enamel Dial</span>
+      </div>
+      <button class="add-basket-btn" data-name="Nightfall ">Add to Cart</button>
+      <button class="buy-now-btn">Buy Now</button>
+    </div>
+  </div>
+</section>
+
+
+    <!-- Special Edition Collection -->
+ <section id="special" class="collection-section">
+  <h2 class="collection-title">Special Edition</h2>
+  <p class="collection-subtitle">Limited releases and unique designs</p>
+
+  <div class="watch-grid">
+    <div class="watch-card">
+      <div class="watch-badge new-badge">LIMITED</div>
+      <div class="watch-image"><img src="watch_images/Luna.png" alt="Luna Watch"></div>
+      <h3>Luna</h3>
+      <div class="watch-price">$299</div>
+      <p>Pearl dial, pink gold, diamonds, moonphase. Only 500 made.</p>
+      <div class="watch-features">
+        <span class="feature-tag">Limited</span>
+        <span class="feature-tag">Diamonds</span>
+        <span class="feature-tag">Moonphase</span>
+      </div>
+      <button class="add-basket-btn" data-name="Luna">Add to Cart</button>
+      <button class="buy-now-btn">Buy Now</button>
+    </div>
+
+    <div class="watch-card">
+      <div class="watch-image"><img src="watch_images/Commander.png" alt="Commander Watch"></div>
+      <h3>Commander</h3>
+      <div class="watch-price">$249</div>
+      <p>Amber dial, rose case & strap. Chrono charm.</p>
+      <div class="watch-features">
+        <span class="feature-tag">Chronograph</span>
+        <span class="feature-tag">Rose Gold</span>
+        <span class="feature-tag">Elegant</span>
+      </div>
+      <button class="add-basket-btn" data-name="Commander">Add to Cart</button>
+      <button class="buy-now-btn">Buy Now</button>
+    </div>
+
+    <div class="watch-card">
+      <div class="watch-badge bestseller-badge">POPULAR</div>
+      <div class="watch-image"><img src="watch_images/Volt.png" alt="Volt Watch"></div>
+      <h3>Volt</h3>
+      <div class="watch-price">$279</div>
+      <p>Digital face, green bio-plastic case. Retro-futuristic.</p>
+      <div class="watch-features">
+        <span class="feature-tag">Digital</span>
+        <span class="feature-tag">Bio-Plastic</span>
+        <span class="feature-tag">Multi-Function</span>
+      </div>
+      <button class="add-basket-btn" data-name="Volt">Add to Cart</button>
+      <button class="buy-now-btn">Buy Now</button>
+    </div>
+
+    <div class="watch-card">
+      <div class="watch-image"><img src="watch_images/Dynastia.png" alt="Dynastia Watch"></div>
+      <h3>Dynastia</h3>
+      <div class="watch-price">$349</div>
+      <p>Enamel dial, white gold case. Cultural artistry.</p>
+      <div class="watch-features">
+        <span class="feature-tag">Automatic</span>
+        <span class="feature-tag">Geneva Seal</span>
+        <span class="feature-tag">Enamel</span>
+      </div>
+      <button class="add-basket-btn" data-name="Dynastia">Add to Cart</button>
+      <button class="buy-now-btn">Buy Now</button>
+    </div>
+  </div>
+</section>
+
+  </main>
+
+  <!-- Chat integration -->
+  <div id="chat-icon">💬</div>
+  <div id="chat-box" class="hidden">
+    <div class="chat-header">
+      <h3>Need Help Choosing?</h3>
+      <p>Talk to our watch experts for free</p>
+    </div>
+    <div class="chat-body">
+      <div class="chat-option">
+        <div class="option-icon">🎤</div>
+        <div class="option-content">
+          <h4>Speak to an Expert</h4>
+          <p>Get personalized recommendations based on your style and budget</p>
+          <button id="start-voice-chat" class="voice-chat-btn">Start Chat Now</button>
+        </div>
+      </div>
+    </div>
+    <button id="close-chat">Close Chat</button>
+  </div>
+
+  <script>
+    // Shopping basket count
+    let basketCount = 0;
+    const basketCountElem = document.getElementById('basket-count');
+
+    // Add to cart functionality
+    document.querySelectorAll('.add-basket-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        basketCount++;
+        basketCountElem.textContent = basketCount;
+        btn.textContent = "Added!";
+        btn.disabled = true;
+        setTimeout(() => {
+          btn.textContent = "Add to Cart";
+          btn.disabled = false;
+        }, 2000);
+      });
+    });
+
+    // Filter functionality
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const collectionSections = document.querySelectorAll('.collection-section');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterBtns.forEach(b => b.classList.remove('active'));
+        // Add active class to clicked button
+        btn.classList.add('active');
+
+        const filter = btn.dataset.filter;
+
+        if (filter === 'all') {
+          collectionSections.forEach(section => section.classList.remove('hidden'));
+        } else {
+          collectionSections.forEach(section => {
+            if (section.id === filter) {
+              section.classList.remove('hidden');
+            } else {
+              section.classList.add('hidden');
+            }
+          });
+        }
+      });
+    });
+
+    // Voicebot integration
+    const VOICEBOT_URL = 'https://lorent-watchmaker-v1.vercel.app/?config_id=d531e29d-ac3d-4de2-bf71-dfd6f1daaa84';
+
+    // Chat functionality
+    const chatIcon = document.getElementById('chat-icon');
+    const chatBox = document.getElementById('chat-box');
+    const closeChat = document.getElementById('close-chat');
+    const startVoiceChat = document.getElementById('start-voice-chat');
+
+    chatIcon.addEventListener('click', () => {
+      chatBox.classList.toggle('hidden');
+    });
+
+    closeChat.addEventListener('click', () => {
+      chatBox.classList.add('hidden');
+    });
+
+    // Handle voice chat button click
+    if (startVoiceChat) {
+      startVoiceChat.addEventListener('click', () => {
+        const voiceChatWindow = window.open(
+          VOICEBOT_URL, 
+          'LorentVoiceBot', 
+          'width=900,height=700,scrollbars=yes,resizable=yes,status=yes,menubar=no,toolbar=no'
+        );
+        
+        if (voiceChatWindow) {
+          voiceChatWindow.focus();
+          chatBox.classList.add('hidden');
+        } else {
+          alert('Please allow popups to access the chat feature.');
+        }
+      });
+    }
+  </script>
+</body>
+</html>

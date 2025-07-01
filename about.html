@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About Us | Lorent - Quality Watches at Affordable Prices</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* Root Variables */
+    :root {
+      --primary-black: #1a1a1a;
+      --soft-black: #2c2c2c;
+      --pure-white: #ffffff;
+      --light-gray: #f5f5f5;
+      --border-gray: #e0e0e0;
+      --sale-red: #e53e3e;
+      --dark-red: #c53030;
+      --success-green: #38a169;
+      --text-gray: #4a5568;
+      --bestseller-gold: #f6ad55;
+      
+      --font-primary: 'Inter', sans-serif;
+    }
+
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--pure-white);
+      color: var(--primary-black);
+      font-family: var(--font-primary);
+      line-height: 1.6;
+    }
+
+    /* Top Offer Bar */
+    .offer-bar {
+      background: var(--sale-red);
+      color: var(--pure-white);
+      text-align: center;
+      padding: 1rem;
+      font-weight: 700;
+      font-size: 1rem;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.8; }
+    }
+
+    /* Header */
+    header {
+      background: var(--pure-white);
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 3px solid var(--primary-black);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 12px rgba(26, 26, 26, 0.1);
+    }
+
+    .logo {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--primary-black);
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+      text-decoration: none;
+      letter-spacing: 2px;
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--primary-black);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    nav a:hover, nav a.active {
+      background: var(--primary-black);
+      color: var(--pure-white);
+    }
+
+    nav a.sale-link {
+      background: var(--sale-red);
+      color: var(--pure-white);
+      font-weight: 700;
+      animation: bounce 1s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-5px); }
+      60% { transform: translateY(-3px); }
+    }
+
+    .basket-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--soft-black);
+      color: var(--pure-white);
+      padding: 0.8rem 1.5rem;
+      border-radius: 30px;
+      font-weight: 700;
+      box-shadow: 0 4px 12px rgba(44, 44, 44, 0.3);
+    }
+
+    .basket-link:hover {
+      background: var(--primary-black);
+      transform: translateY(-2px);
+    }
+
+    #basket-count {
+      background: var(--sale-red);
+      color: var(--pure-white);
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--primary-black) 0%, var(--soft-black) 100%);
+      color: var(--pure-white);
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      letter-spacing: 2px;
+    }
+
+    .hero p {
+      font-size: 1.4rem;
+      opacity: 0.9;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* Main Content */
+    .main-content {
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section {
+      margin-bottom: 5rem;
+    }
+
+    .section-title {
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin-bottom: 2rem;
+      color: var(--primary-black);
+      text-align: center;
+      letter-spacing: 1px;
+    }
+
+    .section-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-content.reverse {
+      direction: rtl;
+    }
+
+    .section-content.reverse > * {
+      direction: ltr;
+    }
+
+    .section-text {
+      padding: 2rem;
+    }
+
+    .section-text h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--primary-black);
+    }
+
+    .section-text p {
+      font-size: 1.1rem;
+      color: var(--text-gray);
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+
+    .section-image {
+  width: 100%;
+  height: 350px;
+  background: var(--light-gray);
+  border: 3px solid var(--border-gray);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* prevent image overflow */
+}
+
+.section-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px;
+}
+
+
+    /* Timeline Section */
+    .timeline-section {
+      background: var(--light-gray);
+      padding: 5rem 2rem;
+    }
+
+    .timeline-content {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .timeline {
+      position: relative;
+      padding: 2rem 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: var(--sale-red);
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .timeline-item:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .timeline-content-box {
+      background: var(--pure-white);
+      padding: 2.5rem;
+      border-radius: 15px;
+      border: 2px solid var(--border-gray);
+      width: 45%;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+
+    .timeline-year {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--sale-red);
+      margin-bottom: 1rem;
+    }
+
+    .timeline-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--primary-black);
+    }
+
+    .timeline-description {
+      color: var(--text-gray);
+      line-height: 1.6;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 20px;
+      height: 20px;
+      background: var(--sale-red);
+      border-radius: 50%;
+      border: 4px solid var(--pure-white);
+      z-index: 10;
+    }
+
+    /* Values Section */
+    .values-section {
+      padding: 5rem 2rem;
+      background: var(--pure-white);
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .value-card {
+      text-align: center;
+      padding: 3rem;
+      background: var(--light-gray);
+      border-radius: 15px;
+      border: 2px solid var(--border-gray);
+      transition: all 0.3s ease;
+    }
+
+    .value-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--sale-red);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    .value-icon {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+      color: var(--sale-red);
+    }
+
+    .value-card h4 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--primary-black);
+    }
+
+    .value-card p {
+      color: var(--text-gray);
+      line-height: 1.6;
+    }
+
+    /* Stats Section */
+    .stats-section {
+      padding: 4rem 2rem;
+      background: var(--light-gray);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .stat-card {
+      background: var(--pure-white);
+      padding: 2.5rem;
+      border-radius: 15px;
+      text-align: center;
+      border: 2px solid var(--border-gray);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--sale-red);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 1rem;
+      color: var(--text-gray);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: var(--sale-red);
+      color: var(--pure-white);
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .cta-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .cta-section h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-section p {
+      font-size: 1.2rem;
+      margin-bottom: 2.5rem;
+      opacity: 0.9;
+    }
+
+    .cta-btn {
+      background: var(--pure-white);
+      color: var(--sale-red);
+      padding: 1.2rem 3rem;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: 30px;
+      display: inline-block;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .cta-btn:hover {
+      background: var(--primary-black);
+      color: var(--pure-white);
+      transform: translateY(-2px);
+    }
+
+    /* Chat Styles */
+    #chat-icon {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      background: var(--sale-red);
+      color: var(--pure-white);
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      font-size: 1.8rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      z-index: 2000;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 25px rgba(229, 62, 62, 0.4);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    #chat-icon:hover {
+      background: var(--primary-black);
+      transform: scale(1.1);
+    }
+
+    #chat-box {
+      position: fixed;
+      bottom: 120px;
+      right: 36px;
+      width: 400px;
+      background: var(--pure-white);
+      color: var(--primary-black);
+      border-radius: 15px;
+      box-shadow: 0 25px 70px rgba(0,0,0,0.2);
+      z-index: 2000;
+      overflow: hidden;
+      border: 3px solid var(--sale-red);
+    }
+
+    #chat-box.hidden {
+      display: none;
+    }
+
+    .chat-header {
+      background: var(--sale-red);
+      color: var(--pure-white);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .chat-header h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .chat-body {
+      padding: 2rem;
+    }
+
+    .chat-option {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      padding: 2rem;
+      background: var(--light-gray);
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      border: 2px solid var(--border-gray);
+    }
+
+    .chat-option:hover {
+      background: var(--pure-white);
+      border-color: var(--sale-red);
+      transform: translateY(-2px);
+    }
+
+    .voice-chat-btn {
+      background: var(--soft-black);
+      color: var(--pure-white);
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-radius: 25px;
+      text-transform: uppercase;
+    }
+
+    .voice-chat-btn:hover {
+      background: var(--primary-black);
+    }
+
+    #close-chat {
+      width: 100%;
+      background: var(--light-gray);
+      color: var(--primary-black);
+      border: none;
+      padding: 1.5rem;
+      cursor: pointer;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      border-top: 3px solid var(--border-gray);
+      text-transform: uppercase;
+      font-size: 1rem;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      header {
+        padding: 1.5rem;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .logo {
+        font-size: 2rem;
+      }
+
+      nav {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+      }
+
+      .section-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .timeline::before {
+        left: 30px;
+      }
+
+      .timeline-item {
+        flex-direction: row !important;
+        padding-left: 70px;
+      }
+
+      .timeline-content-box {
+        width: 100%;
+      }
+
+      .timeline-dot {
+        left: 30px;
+      }
+
+      .values-grid,
+      .team-grid,
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      #chat-box {
+        width: calc(100vw - 40px);
+        right: 20px;
+        left: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="offer-bar">
+    🎉 FLASH SALE: 40% OFF All Watches + FREE Shipping! Limited Time Only! 🎉
+  </div>
+
+  <header>
+    <a href="index.html" class="logo">LORENT</a>
+    <nav>
+      <a href="watches.html">All Watches</a>
+      <a href="about.html">About Us</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="sale.html" class="sale-link">MEGA SALE</a>
+      <a href="basket.html" class="basket-link">
+        <span>🛒</span>
+        <span>Cart</span>
+        <span id="basket-count">0</span>
+      </a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>About Lorent</h1>
+    <p>For nearly 50 years, we've been on a mission to make quality timepieces accessible to everyone. From our humble beginnings in a Swiss workshop to serving customers worldwide, our commitment remains the same: exceptional watches at prices that make sense.</p>
+  </section>
+
+  <main class="main-content">
+    <section class="section">
+      <div class="section-content">
+        <div class="section-text">
+          <h3>Our Founding Story</h3>
+          <p>In 1975, master watchmaker Henri Lorent opened a small workshop in the Swiss Alps with a revolutionary idea: why should quality timepieces be reserved for the wealthy? Working with a team of skilled craftsmen, Henri developed techniques to create reliable, beautiful watches without the luxury markup.</p>
+          <p>What started as a local business quickly grew as word spread about our exceptional value. Henri's philosophy was simple: "Every person deserves a watch they can be proud of, regardless of their budget."</p>
+          <p>Today, that same spirit drives everything we do. We've never forgotten our roots or our mission to democratize quality watchmaking.</p>
+        </div>
+        <div class="section-image"><img src="other_images/about_us_1.jpg"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-content reverse">
+        <div class="section-text">
+          <h3>Quality Without Compromise</h3>
+          <p>We believe that affordable doesn't mean cheap. Every Lorent watch undergoes rigorous testing to ensure it meets our strict quality standards. From the precision of the movement to the durability of the materials, we never cut corners where it matters.</p>
+          <p>Our direct-to-consumer approach eliminates unnecessary markups from middlemen and fancy boutiques. Instead, we invest in what truly matters: superior components, precise assembly, and comprehensive testing.</p>
+          <p>The result? Watches that rival those costing 3-4 times more, available at prices that real people can afford.</p>
+        </div>
+        <div class="section-image"><img src="other_images/about_us_2.png"></div>
+      </div>
+    </section>
+  </main>
+
+  <section class="timeline-section">
+    <div class="timeline-content">
+      <h2 class="section-title">Our Journey</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-content-box">
+            <div class="timeline-year">1975</div>
+            <div class="timeline-title">The Beginning</div>
+            <div class="timeline-description">Henri Lorent opens his first workshop in Switzerland with a vision to make quality watches accessible to everyone.</div>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content-box">
+            <div class="timeline-year">1982</div>
+            <div class="timeline-title">Going Global</div>
+            <div class="timeline-description">First international expansion as Lorent watches gain recognition beyond Switzerland for exceptional value.</div>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content-box">
+            <div class="timeline-year">1995</div>
+            <div class="timeline-title">Innovation Era</div>
+            <div class="timeline-description">Launch of our contemporary collection, bringing modern design to affordable luxury timepieces.</div>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content-box">
+            <div class="timeline-year">2010</div>
+            <div class="timeline-title">Digital Revolution</div>
+            <div class="timeline-description">Launch of online store, making Lorent watches available directly to customers worldwide.</div>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content-box">
+            <div class="timeline-year">2023</div>
+            <div class="timeline-title">500,000 Customers</div>
+            <div class="timeline-description">Celebrating over half a million satisfied customers across 85 countries worldwide.</div>
+          </div>
+          <div class="timeline-dot"></div>
+  
+  </div>
+
+    <!-- Chat integration -->
+  <div id="chat-icon">💬</div>
+  <div id="chat-box" class="hidden">
+    <div class="chat-header">
+      <h3>Need Help Choosing?</h3>
+      <p>Talk to our watch experts for free</p>
+    </div>
+    <div class="chat-body">
+      <div class="chat-option">
+        <div class="option-icon">🎤</div>
+        <div class="option-content">
+          <h4>Speak to an Expert</h4>
+          <p>Get personalized recommendations based on your style and budget</p>
+          <button id="start-voice-chat" class="voice-chat-btn">Start Chat Now</button>
+        </div>
+      </div>
+    </div>
+    <button id="close-chat">Close Chat</button>
+  </div>
+
+  <script>
+    // Shopping basket count
+    let basketCount = 0;
+    const basketCountElem = document.getElementById('basket-count');
+
+    // Voicebot integration
+    const VOICEBOT_URL = 'https://lorent-watchmaker-v1.vercel.app/?config_id=d531e29d-ac3d-4de2-bf71-dfd6f1daaa84';
+
+    // Chat functionality
+    const chatIcon = document.getElementById('chat-icon');
+    const chatBox = document.getElementById('chat-box');
+    const closeChat = document.getElementById('close-chat');
+    const startVoiceChat = document.getElementById('start-voice-chat');
+
+    chatIcon.addEventListener('click', () => {
+      chatBox.classList.toggle('hidden');
+    });
+
+    closeChat.addEventListener('click', () => {
+      chatBox.classList.add('hidden');
+    });
+
+    // Handle voice chat button click
+    if (startVoiceChat) {
+      startVoiceChat.addEventListener('click', () => {
+        const voiceChatWindow = window.open(
+          VOICEBOT_URL, 
+          'LorentVoiceBot', 
+          'width=900,height=700,scrollbars=yes,resizable=yes,status=yes,menubar=no,toolbar=no'
+        );
+        
+        if (voiceChatWindow) {
+          voiceChatWindow.focus();
+          chatBox.classList.add('hidden');
+        } else {
+          alert('Please allow popups to access the chat feature.');
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+  </section>
+
+  <section class="values-section">
+    <h2 class="section-title">Our Core Values</h2>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon">🎯</div>
+        <h4>Customer First</h4>
+        <p>Every decision we make starts with asking: "How does this benefit our customers?" Your satisfaction is our success.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">💡</div>
+        <h4>Honest Pricing</h4>
+        <p>No inflated MSRPs or fake sales. Our prices reflect real value - quality components at fair margins.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">⚡</div>
+        <h4>Continuous Innovation</h4>
+        <p>We're always looking for ways to improve our watches, our service, and your experience with Lorent.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🤝</div>
+        <h4>Accessibility</h4>
+        <p>Quality timepieces shouldn't be exclusive. We make watches that everyone can afford and be proud to wear.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats-section">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-number">500K+</span>
+        <span class="stat-label">Happy Customers</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">85</span>
+        <span class="stat-label">Countries Served</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">48</span>
+        <span class="stat-label">Years in Business</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">99%</span>
+        <span class="stat-label">Customer Satisfaction</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">2.1M</span>
+        <span class="stat-label">Watches Sold</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">24/7</span>
+        <span class="stat-label">Customer Support</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-content">
+      <h2>Ready to Join the Lorent Family?</h2>
+      <p>Experience the quality and value that over 500,000 customers worldwide trust. Find your perfect timepiece today.</p>
+      <a href="watches.html" class="cta-btn">Shop All Watches</a>
+    </div>
+  </section>
+

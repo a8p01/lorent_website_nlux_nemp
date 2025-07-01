@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Watch Blog | Lorent - Tips, Guides & Watch Knowledge</title>
+  <meta name="description" content="Discover watch care tips, buying guides, and style advice from Lorent's watch experts. Learn everything about affordable quality timepieces.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* Root Variables */
+    :root {
+      --primary-black: #1a1a1a;
+      --soft-black: #2c2c2c;
+      --pure-white: #ffffff;
+      --light-gray: #f5f5f5;
+      --border-gray: #e0e0e0;
+      --sale-red: #e53e3e;
+      --dark-red: #c53030;
+      --success-green: #38a169;
+      --text-gray: #4a5568;
+      --bestseller-gold: #f6ad55;
+      
+      --font-primary: 'Inter', sans-serif;
+    }
+
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--pure-white);
+      color: var(--primary-black);
+      font-family: var(--font-primary);
+      line-height: 1.6;
+    }
+
+    /* Top Offer Bar */
+    .offer-bar {
+      background: var(--sale-red);
+      color: var(--pure-white);
+      text-align: center;
+      padding: 1rem;
+      font-weight: 700;
+      font-size: 1rem;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.8; }
+    }
+
+    /* Header */
+    header {
+      background: var(--pure-white);
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 3px solid var(--primary-black);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 12px rgba(26, 26, 26, 0.1);
+    }
+
+    .logo {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--primary-black);
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+      text-decoration: none;
+      letter-spacing: 2px;
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--primary-black);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    nav a:hover, nav a.active {
+      background: var(--primary-black);
+      color: var(--pure-white);
+    }
+
+    nav a.sale-link {
+      background: var(--sale-red);
+      color: var(--pure-white);
+      font-weight: 700;
+      animation: bounce 1s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-5px); }
+      60% { transform: translateY(-3px); }
+    }
+
+    .basket-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--soft-black);
+      color: var(--pure-white);
+      padding: 0.8rem 1.5rem;
+      border-radius: 30px;
+      font-weight: 700;
+      box-shadow: 0 4px 12px rgba(44, 44, 44, 0.3);
+    }
+
+    .basket-link:hover {
+      background: var(--primary-black);
+      transform: translateY(-2px);
+    }
+
+    #basket-count {
+      background: var(--sale-red);
+      color: var(--pure-white);
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--primary-black) 0%, var(--soft-black) 100%);
+      color: var(--pure-white);
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      letter-spacing: 1px;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      opacity: 0.9;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* Filter Tabs */
+    .filter-tabs {
+      background: var(--light-gray);
+      padding: 2rem;
+      border-bottom: 2px solid var(--border-gray);
+      position: sticky;
+      top: 89px;
+      z-index: 90;
+    }
+
+    .tabs-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      background: var(--pure-white);
+      color: var(--primary-black);
+      border: 2px solid var(--border-gray);
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .tab-btn:hover, .tab-btn.active {
+      background: var(--sale-red);
+      color: var(--pure-white);
+      border-color: var(--sale-red);
+      transform: translateY(-2px);
+    }
+
+    /* Main Content */
+    .main-content {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 3rem;
+    }
+
+    .blog-post {
+      background: var(--pure-white);
+      border: 2px solid var(--border-gray);
+      border-radius: 15px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    }
+
+    .blog-post:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+      border-color: var(--sale-red);
+    }
+
+    .post-image {
+      width: 100%;
+      height: 200px;
+      background: var(--light-gray);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: var(--text-gray);
+      border-bottom: 2px solid var(--border-gray);
+    }
+
+    .post-content {
+      padding: 2rem;
+    }
+
+    .post-category {
+      display: inline-block;
+      background: var(--sale-red);
+      color: var(--pure-white);
+      padding: 0.3rem 1rem;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 1rem;
+    }
+
+    .post-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--primary-black);
+      line-height: 1.4;
+    }
+
+    .post-excerpt {
+      color: var(--text-gray);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .post-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--text-gray);
+    }
+
+    .post-date {
+      font-weight: 600;
+    }
+
+    .read-time {
+      background: var(--light-gray);
+      padding: 0.3rem 0.8rem;
+      border-radius: 10px;
+      font-weight: 600;
+    }
+
+    .read-more-btn {
+      background: var(--soft-black);
+      color: var(--pure-white);
+      padding: 0.8rem 1.5rem;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: 25px;
+      display: inline-block;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .read-more-btn:hover {
+      background: var(--primary-black);
+      transform: translateY(-2px);
+    }
+
+    /* Hidden sections for filtering */
+    .blog-post.hidden {
+      display: none;
+    }
+
+    /* Newsletter Section */
+    .newsletter-section {
+      background: var(--light-gray);
+      padding: 4rem 2rem;
+      margin-top: 4rem;
+    }
+
+    .newsletter-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .newsletter-section h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      color: var(--primary-black);
+    }
+
+    .newsletter-section p {
+      font-size: 1.2rem;
+      color: var(--text-gray);
+      margin-bottom: 2.5rem;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 1rem;
+      max-width: 500px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
+
+    .newsletter-input {
+      flex: 1;
+      padding: 1rem;
+      border: 2px solid var(--border-gray);
+      border-radius: 25px;
+      font-size: 1rem;
+      min-width: 250px;
+    }
+
+    .newsletter-input:focus {
+      outline: none;
+      border-color: var(--sale-red);
+    }
+
+    .newsletter-btn {
+      background: var(--sale-red);
+      color: var(--pure-white);
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 25px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .newsletter-btn:hover {
+      background: var(--dark-red);
+      transform: translateY(-2px);
+    }
+
+    /* Chat Styles */
+    #chat-icon {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      background: var(--sale-red);
+      color: var(--pure-white);
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      font-size: 1.8rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      z-index: 2000;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 25px rgba(229, 62, 62, 0.4);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    #chat-icon:hover {
+      background: var(--primary-black);
+      transform: scale(1.1);
+    }
+
+    #chat-box {
+      position: fixed;
+      bottom: 120px;
+      right: 36px;
+      width: 400px;
+      background: var(--pure-white);
+      color: var(--primary-black);
+      border-radius: 15px;
+      box-shadow: 0 25px 70px rgba(0,0,0,0.2);
+      z-index: 2000;
+      overflow: hidden;
+      border: 3px solid var(--sale-red);
+    }
+
+    #chat-box.hidden {
+      display: none;
+    }
+
+    .chat-header {
+      background: var(--sale-red);
+      color: var(--pure-white);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .chat-header h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .chat-body {
+      padding: 2rem;
+    }
+
+    .chat-option {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      padding: 2rem;
+      background: var(--light-gray);
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      border: 2px solid var(--border-gray);
+    }
+
+    .chat-option:hover {
+      background: var(--pure-white);
+      border-color: var(--sale-red);
+      transform: translateY(-2px);
+    }
+
+    .voice-chat-btn {
+      background: var(--soft-black);
+      color: var(--pure-white);
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-radius: 25px;
+      text-transform: uppercase;
+    }
+
+    .voice-chat-btn:hover {
+      background: var(--primary-black);
+    }
+
+    #close-chat {
+      width: 100%;
+      background: var(--light-gray);
+      color: var(--primary-black);
+      border: none;
+      padding: 1.5rem;
+      cursor: pointer;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      border-top: 3px solid var(--border-gray);
+      text-transform: uppercase;
+      font-size: 1rem;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      header {
+        padding: 1.5rem;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .logo {
+        font-size: 2rem;
+      }
+
+      nav {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+      }
+
+      .filter-tabs {
+        top: 140px;
+      }
+
+      .main-content {
+        padding: 3rem 1.5rem;
+      }
+
+      .blog-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .newsletter-input {
+        width: 100%;
+        min-width: auto;
+      }
+
+      #chat-box {
+        width: calc(100vw - 40px);
+        right: 20px;
+        left: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="offer-bar">
+    🎉 FLASH SALE: 40% OFF All Watches + FREE Shipping! Limited Time Only! 🎉
+  </div>
+
+  <header>
+    <a href="index.html" class="logo">LORENT</a>
+    <nav>
+      <a href="watches.html">All Watches</a>
+      <a href="about.html">About Us</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="sale.html" class="sale-link">MEGA SALE</a>
+      <a href="basket.html" class="basket-link">
+        <span>🛒</span>
+        <span>Cart</span>
+        <span id="basket-count">0</span>
+      </a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Watch Knowledge Hub</h1>
+    <p>Expert tips, buying guides, and style advice to help you make the best watch decisions. Learn from our watch specialists and join thousands of informed customers.</p>
+  </section>
+
+  <nav class="filter-tabs">
+    <div class="tabs-container">
+      <button class="tab-btn active" data-category="all">All Posts</button>
+      <button class="tab-btn" data-category="guides">Buying Guides</button>
+      <button class="tab-btn" data-category="care">Watch Care</button>
+      <button class="tab-btn" data-category="style">Style Tips</button>
+      <button class="tab-btn" data-category="reviews">Reviews</button>
+    </div>
+  </nav>
+
+  <main class="main-content">
+    <div class="blog-grid">
+      <!-- Buying Guides -->
+      <article class="blog-post" data-category="guides">
+        <div class="post-image">💡</div>
+        <div class="post-content">
+          <span class="post-category">Buying Guide</span>
+          <h2 class="post-title">How to Choose Your First Quality Watch Under $200</h2>
+          <div class="post-meta">
+            <span class="post-date">December 15, 2024</span>
+            <span class="read-time">5 min read</span>
+          </div>
+          <p class="post-excerpt">Overwhelmed by watch options? Our expert guide breaks down exactly what to look for when buying your first quality timepiece on a budget. From movement types to case materials, we cover everything you need to know.</p>
+          <a href="#" class="read-more-btn">Read Full Guide</a>
+        </div>
+      </article>
+
+      <article class="blog-post" data-category="guides">
+        <div class="post-image">⚖️</div>
+        <div class="post-content">
+          <span class="post-category">Buying Guide</span>
+          <h2 class="post-title">Quartz vs Automatic: Which Movement is Right for You?</h2>
+          <div class="post-meta">
+            <span class="post-date">December 10, 2024</span>
+            <span class="read-time">7 min read</span>
+          </div>
+          <p class="post-excerpt">Confused about watch movements? Learn the practical differences between quartz and automatic watches, including accuracy, maintenance, and cost considerations for everyday wearers.</p>
+          <a href="#" class="read-more-btn">Read Full Guide</a>
+        </div>
+      </article>
+
+      <!-- Watch Care -->
+      <article class="blog-post" data-category="care">
+        <div class="post-image">🧽</div>
+        <div class="post-content">
+          <span class="post-category">Watch Care</span>
+          <h2 class="post-title">5-Minute Daily Watch Care Routine That Actually Works</h2>
+          <div class="post-meta">
+            <span class="post-date">December 8, 2024</span>
+            <span class="read-time">4 min read</span>
+          </div>
+          <p class="post-excerpt">Keep your watch looking new with this simple daily routine. No expensive tools needed - just basic care tips that will extend your watch's life and maintain its appearance for years.</p>
+          <a href="#" class="read-more-btn">Read Full Guide</a>
+        </div>
+      </article>
+
+      <article class="blog-post" data-category="care">
+        <div class="post-image">💧</div>
+        <div class="post-content">
+          <span class="post-category">Watch Care</span>
+          <h2 class="post-title">Water Resistance Explained: What 30m, 50m, and 100m Really Mean</h2>
+          <div class="post-meta">
+            <span class="post-date">December 5, 2024</span>
+            <span class="read-time">6 min read</span>
+          </div>
+          <p class="post-excerpt">Don't get fooled by water resistance ratings! Learn what those numbers actually mean and how to properly care for your watch around water. Includes real-world testing scenarios.</p>
+          <a href="#" class="read-more-btn">Read Full Guide</a>
+        </div>
+      </article>
+
+      <!-- Style Tips -->
+      <article class="blog-post" data-category="style">
+        <div class="post-image">👔</div>
+        <div class="post-content">
+          <span class="post-category">Style Tips</span>
+          <h2 class="post-title">Watch and Outfit Matching: The Complete Guide</h2>
+          <div class="post-meta">
+            <span class="post-date">December 1, 2024</span>
+            <span class="read-time">8 min read</span>
+          </div>
+          <p class="post-excerpt">Master the art of watch and outfit coordination. From business formal to weekend casual, learn which watch styles work best with different clothing choices and occasions.</p>
+          <a href="#" class="read-more-btn">Read Full Guide</a>
+        </div>
+      </article>
+
+      <article class="blog-post" data-category="style">
+        <div class="post-image">📏</div>
+        <div class="post-content">
+          <span class="post-category">Style Tips</span>
+          <h2 class="post-title">Finding the Perfect Watch Size for Your Wrist</h2>
+          <div class="post-meta">
+            <span class="post-date">November 28, 2024</span>
+            <span class="read-time">5 min read</span>
+          </div>
+          <p class="post-excerpt">Size matters when it comes to watches. Learn how to measure your wrist and choose the right case diameter, thickness, and strap width for the most comfortable and stylish fit.</p>
+          <a href="#" class="read-more-btn">Read Full Guide</a>
+        </div>
+      </article>
+
+      <!-- Reviews -->
+      <article class="blog-post" data-category="reviews">
+        <div class="post-image">⭐</div>
+        <div class="post-content">
+          <span class="post-category">Review</span>
+          <h2 class="post-title">Lorent Heritage Gold vs. Competitors: 6-Month Real-World Test</h2>
+          <div class="post-meta">
+            <span class="post-date">November 25, 2024</span>
+            <span class="read-time">10 min read</span>
+          </div>
+          <p class="post-excerpt">We wore our Heritage Gold daily for 6 months alongside similar watches from major brands. Here's how it performed in accuracy, durability, and overall value comparison.</p>
+          <a href="#" class="read-more-btn">Read Full Review</a>
+        </div>
+      </article>
+
+      <article class="blog-post" data-category="reviews">
+        <div class="post-image">🏃‍♂️</div>
+        <div class="post-content">
+          <span class="post-category">Review</span>
+          <h2 class="post-title">Sport Edition Pro: Tested by Real Athletes</h2>
+          <div class="post-meta">
+            <span class="post-date">November 20, 2024</span>
+            <span class="read-time">8 min read</span>
+          </div>
+          <p class="post-excerpt">We gave our Sport Edition Pro to runners, swimmers, and gym enthusiasts for 3 months. Read their honest feedback on durability, comfort, and practical performance.</p>
+          <a href="#" class="read-more-btn">Read Full Review</a>
+        </div>
+      </article>
+
+      <!-- More Guides -->
+      <article class="blog-post" data-category="guides">
+        <div class="post-image">🎁</div>
+        <div class="post-content">
+          <span class="post-category">Buying Guide</span>
+          <h2 class="post-title">Watch Gift Guide: Perfect Timepieces for Every Budget</h2>
+          <div class="post-meta">
+            <span class="post-date">November 15, 2024</span>
+            <span class="read-time">12 min read</span>
+          </div>
+          <p class="post-excerpt">Shopping for someone special? Our comprehensive gift guide covers watch options from $50 to $500, with specific recommendations for different personalities and lifestyles.</p>
+          <a href="#" class="read-more-btn">Read Full Guide</a>
+        </div>
+      </article>
+
+      <article class="blog-post" data-category="style">
+        <div class="post-image">💼</div>
+        <div class="post-content">
+          <span class="post-category">Style Tips</span>
+          <h2 class="post-title">Building a Watch Collection: Start Smart, Not Expensive</h2>
+          <div class="post-meta">
+            <span class="post-date">November 10, 2024</span>
+            <span class="read-time">9 min read</span>
+          </div>
+          <p class="post-excerpt">Want to start collecting watches without breaking the bank? Learn the strategic approach to building a versatile watch collection that covers all your needs and occasions.</p>
+          <a href="#" class="read-more-btn">Read Full Guide</a>
+        </div>
+      </article>
+
+      <article class="blog-post" data-category="care">
+        <div class="post-image">🔧</div>
+        <div class="post-content">
+          <span class="post-category">Watch Care</span>
+          <h2 class="post-title">When to Service Your Watch: Warning Signs You Shouldn't Ignore</h2>
+          <div class="post-meta">
+            <span class="post-date">November 5, 2024</span>
+            <span class="read-time">6 min read</span>
+          </div>
+          <p class="post-excerpt">Know when your watch needs professional attention. Learn the warning signs that indicate service time and how to find reliable, affordable watch repair services.</p>
+          <a href="#" class="read-more-btn">Read Full Guide</a>
+        </div>
+      </article>
+
+      <article class="blog-post" data-category="guides">
+        <div class="post-image">🕰️</div>
+        <div class="post-content">
+          <span class="post-category">Buying Guide</span>
+          <h2 class="post-title">Vintage-Inspired vs. Actual Vintage Watches: Pros and Cons</h2>
+          <div class="post-meta">
+            <span class="post-date">October 30, 2024</span>
+            <span class="read-time">7 min read</span>
+          </div>
+          <p class="post-excerpt">Love the vintage look but unsure about buying old watches? Compare the benefits of vintage-inspired modern watches versus actual vintage timepieces, including reliability and cost factors.</p>
+          <a href="#" class="read-more-btn">Read Full Guide</a>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <section class="newsletter-section">
+    <div class="newsletter-content">
+      <h2>Stay Updated with Watch Tips</h2>
+      <div class="newsletter-form">
+        <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+        <button type="submit" class="newsletter-btn">Subscribe Free</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chat integration -->
+  <div id="chat-icon">💬</div>
+  <div id="chat-box" class="hidden">
+    <div class="chat-header">
+      <h3>Questions About Watches?</h3>
+      <p>Ask our watch experts</p>
+    </div>
+    <div class="chat-body">
+      <div class="chat-option">
+        <div class="option-icon">🎤</div>
+        <div class="option-content">
+          <h4>Talk to Watch Expert</h4>
+          <p>Get personalized advice about watch care, buying, and maintenance</p>
+          <button id="start-voice-chat" class="voice-chat-btn">Start Chat Now</button>
+        </div>
+      </div>
+    </div>
+    <button id="close-chat">Close Chat</button>
+  </div>
+
+  <script>
+    // Shopping basket count
+    let basketCount = 0;
+    const basketCountElem = document.getElementById('basket-count');
+
+    // Blog filtering functionality
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const blogPosts = document.querySelectorAll('.blog-post');
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remove active class from all buttons
+        tabBtns.forEach(b => b.classList.remove('active'));
+        // Add active class to clicked button
+        btn.classList.add('active');
+
+        const category = btn.dataset.category;
+
+        blogPosts.forEach(post => {
+          if (category === 'all' || post.dataset.category === category) {
+            post.classList.remove('hidden');
+          } else {
+            post.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    // Newsletter form
+    const newsletterForm = document.querySelector('.newsletter-form');
+    if (newsletterForm) {
+      newsletterForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = newsletterForm.querySelector('input').value;
+        if (email) {
+          alert('Thanks for subscribing! Check your email for confirmation.');
+          newsletterForm.querySelector('input').value = '';
+        }
+      });
+    }
+
+    // Voicebot integration
+    const VOICEBOT_URL = 'https://lorent-watchmaker-v1.vercel.app/?config_id=d531e29d-ac3d-4de2-bf71-dfd6f1daaa84';
+
+    // Chat functionality
+    const chatIcon = document.getElementById('chat-icon');
+    const chatBox = document.getElementById('chat-box');
+    const closeChat = document.getElementById('close-chat');
+    const startVoiceChat = document.getElementById('start-voice-chat');
+
+    chatIcon.addEventListener('click', () => {
+      chatBox.classList.toggle('hidden');
+    });
+
+    closeChat.addEventListener('click', () => {
+      chatBox.classList.add('hidden');
+    });
+
+    // Handle voice chat button click
+    if (startVoiceChat) {
+      startVoiceChat.addEventListener('click', () => {
+        const voiceChatWindow = window.open(
+          VOICEBOT_URL, 
+          'LorentVoiceBot', 
+          'width=900,height=700,scrollbars=yes,resizable=yes,status=yes,menubar=no,toolbar=no'
+        );
+        
+        if (voiceChatWindow) {
+          voiceChatWindow.focus();
+          chatBox.classList.add('hidden');
+        } else {
+          alert('Please allow popups to access the chat feature.');
+        }
+      });
+    }
+
+    // SEO-friendly scroll tracking (for engagement metrics)
+    let scrollDepth = 0;
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = Math.round((currentScroll / documentHeight) * 100);
+      
+      if (scrollPercent > scrollDepth) {
+        scrollDepth = scrollPercent;
+        // This would typically send data to analytics
+        if (scrollDepth >= 25 && scrollDepth < 30) {
+          console.log('User engaged: 25% scroll depth reached');
+        }
+        if (scrollDepth >= 50 && scrollDepth < 55) {
+          console.log('User highly engaged: 50% scroll depth reached');
+        }
+        if (scrollDepth >= 75 && scrollDepth < 80) {
+          console.log('User very engaged: 75% scroll depth reached');
+        }
+      }
+    });
+
+    // Track blog post clicks for engagement
+    document.querySelectorAll('.read-more-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const postTitle = btn.closest('.blog-post').querySelector('.post-title').textContent;
+        console.log(`Blog post clicked: ${postTitle}`);
+        // This would typically track the click in analytics
+        alert(`This would open the full article: "${postTitle}". Article pages coming soon!`);
+      });
+    });
+  </script>
+</body>
+</html>

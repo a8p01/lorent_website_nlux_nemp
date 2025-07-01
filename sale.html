@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MEGA SALE - Up to 60% OFF | Lorent Watches</title>
+  <meta name="description" content="FLASH SALE: Save up to 60% on quality watches. Limited time offers on all collections. Free shipping worldwide. Shop now before deals expire!">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    /* Root Variables */
+    :root {
+      --primary-black: #1a1a1a;
+      --soft-black: #2c2c2c;
+      --pure-white: #ffffff;
+      --light-gray: #f5f5f5;
+      --border-gray: #e0e0e0;
+      --sale-red: #e53e3e;
+      --dark-red: #c53030;
+      --success-green: #38a169;
+      --text-gray: #4a5568;
+      --bestseller-gold: #f6ad55;
+      --urgent-orange: #ff6b35;
+      
+      --font-primary: 'Inter', sans-serif;
+    }
+
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--pure-white);
+      color: var(--primary-black);
+      font-family: var(--font-primary);
+      line-height: 1.6;
+    }
+
+    /* Urgent Offer Bar */
+    .urgent-bar {
+      background: linear-gradient(45deg, var(--sale-red), var(--urgent-orange));
+      color: var(--pure-white);
+      text-align: center;
+      padding: 1.2rem;
+      font-weight: 900;
+      font-size: 1.1rem;
+      animation: urgentPulse 1.5s infinite;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .urgent-bar::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      animation: shine 3s infinite;
+    }
+
+    @keyframes urgentPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+    }
+
+    @keyframes shine {
+      0% { left: -100%; }
+      100% { left: 100%; }
+    }
+
+    /* Header */
+    header {
+      background: var(--pure-white);
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 3px solid var(--sale-red);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 12px rgba(229, 62, 62, 0.2);
+    }
+
+    .logo {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--sale-red);
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+      text-decoration: none;
+      letter-spacing: 2px;
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--primary-black);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    nav a:hover {
+      background: var(--primary-black);
+      color: var(--pure-white);
+    }
+
+    nav a.sale-link, nav a.active {
+      background: var(--sale-red);
+      color: var(--pure-white);
+      font-weight: 700;
+      animation: bounce 1s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-5px); }
+      60% { transform: translateY(-3px); }
+    }
+
+    .basket-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--soft-black);
+      color: var(--pure-white);
+      padding: 0.8rem 1.5rem;
+      border-radius: 30px;
+      font-weight: 700;
+      box-shadow: 0 4px 12px rgba(44, 44, 44, 0.3);
+    }
+
+    .basket-link:hover {
+      background: var(--primary-black);
+      transform: translateY(-2px);
+    }
+
+    #basket-count {
+      background: var(--sale-red);
+      color: var(--pure-white);
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--sale-red) 0%, var(--dark-red) 50%, var(--urgent-orange) 100%);
+      color: var(--pure-white);
+      padding: 5rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="white" opacity="0.1"/><circle cx="80" cy="40" r="3" fill="white" opacity="0.1"/><circle cx="40" cy="80" r="1" fill="white" opacity="0.1"/></svg>');
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+    }
+
+    .countdown-badge {
+      background: var(--urgent-orange);
+      color: var(--pure-white);
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 2rem;
+      display: inline-block;
+      animation: urgentPulse 1.5s infinite;
+    }
+
+    .hero h1 {
+      font-size: 5rem;
+      font-weight: 900;
+      margin-bottom: 1rem;
+      letter-spacing: 3px;
+      text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+    }
+
+    .hero .subtitle {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      color: var(--bestseller-gold);
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .hero p {
+      font-size: 1.4rem;
+      margin-bottom: 3rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 0.95;
+    }
+
+    .hero-cta {
+      background: var(--pure-white);
+      color: var(--sale-red);
+      padding: 1.8rem 4rem;
+      text-decoration: none;
+      font-size: 1.4rem;
+      font-weight: 900;
+      border-radius: 50px;
+      display: inline-block;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    }
+
+    .hero-cta:hover {
+      background: var(--bestseller-gold);
+      color: var(--pure-white);
+      transform: translateY(-3px) scale(1.05);
+    }
+
+    /* Countdown Timer */
+    .countdown-section {
+      background: var(--primary-black);
+      color: var(--pure-white);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .countdown-title {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 2rem;
+      color: var(--urgent-orange);
+    }
+
+    .countdown-timer {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .time-unit {
+      background: var(--sale-red);
+      padding: 2rem;
+      border-radius: 15px;
+      min-width: 120px;
+      box-shadow: 0 8px 25px rgba(229, 62, 62, 0.3);
+    }
+
+    .time-number {
+      font-size: 3rem;
+      font-weight: 900;
+      display: block;
+    }
+
+    .time-label {
+      font-size: 1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      opacity: 0.9;
+    }
+
+    /* Sale Categories */
+    .sale-categories {
+      padding: 5rem 2rem;
+      background: var(--light-gray);
+    }
+
+    .categories-content {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 3rem;
+      font-weight: 900;
+      text-align: center;
+      margin-bottom: 1rem;
+      color: var(--primary-black);
+    }
+
+    .section-subtitle {
+      font-size: 1.3rem;
+      text-align: center;
+      color: var(--text-gray);
+      margin-bottom: 4rem;
+    }
+
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+    }
+
+    .category-card {
+      background: var(--pure-white);
+      border: 3px solid var(--border-gray);
+      border-radius: 20px;
+      padding: 3rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .category-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(229, 62, 62, 0.1), transparent);
+      transform: rotate(45deg);
+      transition: all 0.5s ease;
+      opacity: 0;
+    }
+
+    .category-card:hover::before {
+      opacity: 1;
+      animation: shimmer 1s ease-in-out;
+    }
+
+    @keyframes shimmer {
+      0% { transform: translateX(-100%) rotate(45deg); }
+      100% { transform: translateX(100%) rotate(45deg); }
+    }
+
+    .category-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--sale-red);
+      box-shadow: 0 15px 40px rgba(229, 62, 62, 0.2);
+    }
+
+    .discount-badge {
+      position: absolute;
+      top: -15px;
+      right: -15px;
+      background: var(--sale-red);
+      color: var(--pure-white);
+      padding: 1rem 1.5rem;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      font-weight: 900;
+      transform: rotate(15deg);
+      box-shadow: 0 6px 20px rgba(229, 62, 62, 0.4);
+    }
+
+    .category-icon {
+      font-size: 4rem;
+      margin-bottom: 2rem;
+      display: block;
+    }
+
+    .category-card h3 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      color: var(--primary-black);
+    }
+
+    .category-card p {
+      color: var(--text-gray);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .category-btn {
+      background: var(--sale-red);
+      color: var(--pure-white);
+      padding: 1.2rem 2.5rem;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: 30px;
+      display: inline-block;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .category-btn:hover {
+      background: var(--dark-red);
+      transform: translateY(-2px);
+    }
+
+    /* Featured Deals */
+    .featured-deals {
+      padding: 5rem 2rem;
+      background: var(--pure-white);
+    }
+
+    .deals-content {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .deals-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+    }
+
+    .deal-card {
+      background: var(--pure-white);
+      border: 2px solid var(--border-gray);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      position: relative;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+
+    .deal-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--sale-red);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+
+    .deal-badge {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: var(--urgent-orange);
+      color: var(--pure-white);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+  .deal-image {
+  width: 100%;
+  height: 250px; /* match height with .watch-image */
+  background: var(--light-gray);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  border: 2px solid var(--border-gray);
+  overflow: hidden; /* add this to clip image properly */
+}
+
+
+.deal-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* previously was cover, change to contain to match */
+  display: block;
+}
+
+
+    .deal-card h4 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--primary-black);
+    }
+
+    .price-section {
+      margin-bottom: 1.5rem;
+    }
+
+    .sale-price {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--sale-red);
+      margin-right: 1rem;
+    }
+
+    .original-price {
+      font-size: 1.4rem;
+      color: var(--text-gray);
+      text-decoration: line-through;
+    }
+
+    .savings {
+      display: block;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--success-green);
+      margin-top: 0.5rem;
+    }
+
+    .deal-features {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .feature-tag {
+      background: var(--light-gray);
+      color: var(--primary-black);
+      padding: 0.3rem 0.8rem;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .deal-btn {
+      background: var(--sale-red);
+      color: var(--pure-white);
+      padding: 1.2rem 2rem;
+      border: none;
+      font-size: 1rem;
+      font-weight: 700;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+
+    .deal-btn:hover {
+      background: var(--dark-red);
+      transform: translateY(-2px);
+    }
+
+    .buy-now-btn {
+      background: var(--primary-black);
+      color: var(--pure-white);
+      padding: 1.2rem 2rem;
+      border: none;
+      font-size: 1rem;
+      font-weight: 700;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      width: 100%;
+    }
+
+    .buy-now-btn:hover {
+      background: var(--soft-black);
+      transform: translateY(-2px);
+    }
+
+    /* Urgency Section */
+    .urgency-section {
+      background: linear-gradient(135deg, var(--urgent-orange) 0%, var(--sale-red) 100%);
+      color: var(--pure-white);
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .urgency-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .urgency-section h2 {
+      font-size: 3rem;
+      font-weight: 900;
+      margin-bottom: 1.5rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .urgency-section p {
+      font-size: 1.3rem;
+      margin-bottom: 3rem;
+      opacity: 0.95;
+    }
+
+    .urgency-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .urgency-stat {
+      background: rgba(255,255,255,0.2);
+      padding: 2rem;
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 900;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      opacity: 0.9;
+    }
+
+    .final-cta {
+      background: var(--pure-white);
+      color: var(--sale-red);
+      padding: 1.5rem 4rem;
+      text-decoration: none;
+      font-size: 1.3rem;
+      font-weight: 900;
+      border-radius: 50px;
+      display: inline-block;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    }
+
+    .final-cta:hover {
+      background: var(--bestseller-gold);
+      color: var(--pure-white);
+      transform: translateY(-3px) scale(1.05);
+    }
+
+    /* Chat Styles */
+    #chat-icon {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      background: var(--sale-red);
+      color: var(--pure-white);
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      font-size: 1.8rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      z-index: 2000;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 25px rgba(229, 62, 62, 0.4);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    #chat-icon:hover {
+      background: var(--primary-black);
+      transform: scale(1.1);
+    }
+
+    #chat-box {
+      position: fixed;
+      bottom: 120px;
+      right: 36px;
+      width: 400px;
+      background: var(--pure-white);
+      color: var(--primary-black);
+      border-radius: 15px;
+      box-shadow: 0 25px 70px rgba(0,0,0,0.2);
+      z-index: 2000;
+      overflow: hidden;
+      border: 3px solid var(--sale-red);
+    }
+
+    #chat-box.hidden {
+      display: none;
+    }
+
+    .chat-header {
+      background: var(--sale-red);
+      color: var(--pure-white);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .chat-header h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .chat-body {
+      padding: 2rem;
+    }
+
+    .chat-option {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      padding: 2rem;
+      background: var(--light-gray);
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      border: 2px solid var(--border-gray);
+    }
+
+    .chat-option:hover {
+      background: var(--pure-white);
+      border-color: var(--sale-red);
+      transform: translateY(-2px);
+    }
+
+    .voice-chat-btn {
+      background: var(--soft-black);
+      color: var(--pure-white);
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-radius: 25px;
+      text-transform: uppercase;
+    }
+
+    .voice-chat-btn:hover {
+      background: var(--primary-black);
+    }
+
+    #close-chat {
+      width: 100%;
+      background: var(--light-gray);
+      color: var(--primary-black);
+      border: none;
+      padding: 1.5rem;
+      cursor: pointer;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      border-top: 3px solid var(--border-gray);
+      text-transform: uppercase;
+      font-size: 1rem;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      header {
+        padding: 1.5rem;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .logo {
+        font-size: 2rem;
+      }
+
+      nav {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+      }
+
+      .hero .subtitle {
+        font-size: 1.8rem;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+      }
+
+      .countdown-timer {
+        gap: 1rem;
+      }
+
+      .time-unit {
+        min-width: 80px;
+        padding: 1.5rem;
+      }
+
+      .time-number {
+        font-size: 2rem;
+      }
+
+      .categories-grid,
+      .deals-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .urgency-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      #chat-box {
+        width: calc(100vw - 40px);
+        right: 20px;
+        left: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="urgent-bar">
+    ⚡ FLASH SALE ENDS SOON: UP TO 60% OFF + FREE WORLDWIDE SHIPPING ⚡
+  </div>
+
+  <header>
+    <a href="index.html" class="logo">LORENT</a>
+    <nav>
+      <a href="watches.html">All Watches</a>
+      <a href="about.html">About Us</a>
+      <a href="blog.html">Blog</a>
+      <a href="sale.html" class="sale-link active">MEGA SALE</a>
+      <a href="basket.html" class="basket-link">
+        <span>🛒</span>
+        <span>Cart</span>
+        <span id="basket-count">0</span>
+      </a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="countdown-badge">⏰ Limited Time Only</div>
+      <h1>MEGA SALE</h1>
+      <div class="subtitle">Save Up to 60% OFF</div>
+      <p>The biggest sale of the year is here! Get incredible discounts on all our quality watch collections. Free shipping worldwide, no minimum order. Don't miss out!</p>
+      <a href="#deals" class="hero-cta">Shop Sale Now</a>
+    </div>
+  </section>
+
+  <section class="countdown-section">
+    <h2 class="countdown-title">⏰ SALE ENDS IN:</h2>
+    <div class="countdown-timer">
+      <div class="time-unit">
+        <span class="time-number" id="days">02</span>
+        <span class="time-label">Days</span>
+      </div>
+      <div class="time-unit">
+        <span class="time-number" id="hours">14</span>
+        <span class="time-label">Hours</span>
+      </div>
+      <div class="time-unit">
+        <span class="time-number" id="minutes">32</span>
+        <span class="time-label">Minutes</span>
+      </div>
+      <div class="time-unit">
+        <span class="time-number" id="seconds">45</span>
+        <span class="time-label">Seconds</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sale-categories">
+    <div class="categories-content">
+      <h2 class="section-title">Sale by Collection</h2>
+      <p class="section-subtitle">Every collection on sale - find your perfect style and save big</p>
+      
+      <div class="categories-grid">
+        <div class="category-card">
+          <div class="discount-badge">50% OFF</div>
+          <span class="category-icon">⌚</span>
+          <h3>Classic Collection</h3>
+          <p>Timeless elegance meets incredible value. Perfect for every occasion.</p>
+          <a href="#classic-deals" class="category-btn">Shop Classic Sale</a>
+        </div>
+
+        <div class="category-card">
+          <div class="discount-badge">45% OFF</div>
+          <span class="category-icon">📱</span>
+          <h3>Contemporary</h3>
+          <p>Modern designs for the style-conscious. Sleek and sophisticated.</p>
+          <a href="#contemporary-deals" class="category-btn">Shop Contemporary Sale</a>
+        </div>
+
+        <div class="category-card">
+          <div class="discount-badge">40% OFF</div>
+          <span class="category-icon">🏃‍♂️</span>
+          <h3>Sport Collection</h3>
+          <p>Built tough for active lifestyles. Durability meets style.</p>
+          <a href="#sport-deals" class="category-btn">Shop Sport Sale</a>
+        </div>
+
+        <div class="category-card">
+          <div class="discount-badge">60% OFF</div>
+          <span class="category-icon">💎</span>
+          <h3>Special Edition</h3>
+          <p>Limited releases at unbeatable prices. Unique designs, massive savings.</p>
+          <a href="#special-deals" class="category-btn">Shop Special Sale</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="deals" class="featured-deals">
+    <div class="deals-content">
+      <h2 class="section-title">🔥 HOTTEST DEALS</h2>
+      <p class="section-subtitle">These are flying off the shelves - grab yours before they're gone!</p>
+      
+      <div class="deals-grid">
+        <div class="deal-card">
+          <div class="deal-badge">BESTSELLER</div>
+          <div class="deal-image"><img src="watch_images/Eterna.png"></div>
+          <h4>Eterna</h4>
+          <div class="price-section">
+            <span class="sale-price">$89</span>
+            <span class="original-price">$249</span>
+            <span class="savings">Save $160 (64%)</span>
+          </div>
+          <div class="deal-features">
+            <span class="feature-tag">Quartz</span>
+            <span class="feature-tag">Steel</span>
+            <span class="feature-tag">Water Resistant</span>
+          </div>
+          <button class="deal-btn" data-name="Eterna">Add to Cart</button>
+          <button class="buy-now-btn">Buy Now</button>
+        </div>
+
+        <div class="deal-card">
+          <div class="deal-badge">LIMITED TIME</div>
+          <div class="deal-image"><img src="watch_images/Field Ranger.png"></div>
+          <h4>Field Ranger</h4>
+          <div class="price-section">
+            <span class="sale-price">$119</span>
+            <span class="original-price">$199</span>
+            <span class="savings">Save $80 (40%)</span>
+          </div>
+          <div class="deal-features">
+            <span class="feature-tag">Automatic</span>
+            <span class="feature-tag">Matte Case</span>
+            <span class="feature-tag">Shock Resistant</span>
+          </div>
+          <button class="deal-btn" data-name="Field Ranger">Add to Cart</button>
+          <button class="buy-now-btn">Buy Now</button>
+        </div>
+
+        <div class="deal-card">
+          <div class="deal-badge">FLASH DEAL</div>
+          <div class="deal-image"><img src="watch_images/Serene.png"></div>
+          <h4>Serene</h4>
+          <div class="price-section">
+            <span class="sale-price">$79</span>
+            <span class="original-price">$149</span>
+            <span class="savings">Save $70 (47%)</span>
+          </div>
+          <div class="deal-features">
+            <span class="feature-tag">Warm Classic</span>
+            <span class="feature-tag">Quartz</span>
+            <span class="feature-tag">Leather Strap</span>
+          </div>
+          <button class="deal-btn" data-name="Serene">Add to Cart</button>
+          <button class="buy-now-btn">Buy Now</button>
+        </div>
+      
+      </div>
+    </div>
+  </section>
+
+  <section class="urgency-section">
+    <div class="urgency-content">
+      <h2>⚡ Don't Miss Out!</h2>
+      <p>This is our biggest sale of the year. Thousands of customers are already taking advantage of these incredible deals. Join them before it's too late!</p>
+      
+      <div class="urgency-stats">
+        <div class="urgency-stat">
+          <span class="stat-number">2,847</span>
+          <span class="stat-label">Watches Sold Today</span>
+        </div>
+        <div class="urgency-stat">
+          <span class="stat-number">156</span>
+          <span class="stat-label">Currently Shopping</span>
+        </div>
+        <div class="urgency-stat">
+          <span class="stat-number">94%</span>
+          <span class="stat-label">Stock Remaining</span>
+        </div>
+        <div class="urgency-stat">
+          <span class="stat-number">48hrs</span>
+          <span class="stat-label">Sale Time Left</span>
+        </div>
+      </div>
+      
+      <a href="watches.html" class="final-cta">Shop All Sale Items</a>
+    </div>
+  </section>
+
+  <!-- Chat integration -->
+  <div id="chat-icon">💬</div>
+  <div id="chat-box" class="hidden">
+    <div class="chat-header">
+      <h3>Sale Questions?</h3>
+      <p>Get help with deals and orders</p>
+    </div>
+    <div class="chat-body">
+      <div class="chat-option">
+        <div class="option-icon">🎤</div>
+        <div class="option-content">
+          <h4>Talk to Sales Expert</h4>
+          <p>Get help with sale items, sizing, and payment options</p>
+          <button id="start-voice-chat" class="voice-chat-btn">Start Chat Now</button>
+        </div>
+      </div>
+    </div>
+    <button id="close-chat">Close Chat</button>
+  </div>
+
+  <script>
+    // Shopping basket count
+    let basketCount = 0;
+    const basketCountElem = document.getElementById('basket-count');
+
+    // Add to cart functionality for sale items
+    document.querySelectorAll('.deal-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        basketCount++;
+        basketCountElem.textContent = basketCount;
+        btn.textContent = "Added!";
+        btn.style.background = "var(--success-green)";
+        btn.disabled = true;
+        setTimeout(() => {
+          btn.textContent = "Add to Cart";
+          btn.style.background = "var(--sale-red)";
+          btn.disabled = false;
+        }, 2000);
+      });
+    });
+
+    // Buy now buttons
+    document.querySelectorAll('.buy-now-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        alert('Redirecting to secure checkout...');
+      });
+    });
+
+    // Countdown Timer
+    function updateCountdown() {
+      // Set the date we're counting down to (2 days from now)
+      const countDownDate = new Date().getTime() + (2 * 24 * 60 * 60 * 1000) + (14 * 60 * 60 * 1000) + (32 * 60 * 1000);
+      
+      // Update the countdown every 1 second
+      const timer = setInterval(function() {
+        const now = new Date().getTime();
+        const distance = countDownDate - now;
+        
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
+        document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
+        document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
+        document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
+        
+        if (distance < 0) {
+          clearInterval(timer);
+          document.querySelector('.countdown-section').innerHTML = "<h2 style='color: var(--sale-red); font-size: 3rem;'>SALE ENDED!</h2>";
+        }
+      }, 1000);
+    }
+
+    // Start countdown
+    updateCountdown();
+
+    // Urgency stats animation
+    function animateStats() {
+      const stats = document.querySelectorAll('.stat-number');
+      stats.forEach(stat => {
+        const originalText = stat.textContent;
+        let currentValue = 0;
+        const targetValue = parseInt(originalText.replace(/[^0-9]/g, ''));
+        const increment = targetValue / 100;
+        
+        const timer = setInterval(() => {
+          if (currentValue < targetValue) {
+            currentValue += increment;
+            if (originalText.includes('%')) {
+              stat.textContent = Math.floor(currentValue) + '%';
+            } else if (originalText.includes('hrs')) {
+              stat.textContent = Math.floor(currentValue) + 'hrs';
+            } else {
+              stat.textContent = Math.floor(currentValue).toLocaleString();
+            }
+          } else {
+            stat.textContent = originalText;
+            clearInterval(timer);
+          }
+        }, 20);
+      });
+    }
+
+    // Animate stats when they come into view
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateStats();
+          observer.unobserve(entry.target);
+        }
+      });
+    });
+
+    observer.observe(document.querySelector('.urgency-stats'));
+
+    // Dynamic urgency updates
+    setInterval(() => {
+      const shoppers = document.querySelector('.urgency-stats .stat-number');
+      if (shoppers && shoppers.textContent !== '94%') {
+        const currentShoppers = parseInt(shoppers.textContent);
+        const newCount = currentShoppers + Math.floor(Math.random() * 10) - 5;
+        if (newCount > 100 && newCount < 300) {
+          shoppers.textContent = newCount;
+        }
+      }
+    }, 15000);
+
+    // Voicebot integration
+    const VOICEBOT_URL = 'https://lorent-watchmaker-v1.vercel.app/?config_id=d531e29d-ac3d-4de2-bf71-dfd6f1daaa84';
+
+    // Chat functionality
+    const chatIcon = document.getElementById('chat-icon');
+    const chatBox = document.getElementById('chat-box');
+    const closeChat = document.getElementById('close-chat');
+    const startVoiceChat = document.getElementById('start-voice-chat');
+
+    chatIcon.addEventListener('click', () => {
+      chatBox.classList.toggle('hidden');
+    });
+
+    closeChat.addEventListener('click', () => {
+      chatBox.classList.add('hidden');
+    });
+
+    // Handle voice chat button click
+    if (startVoiceChat) {
+      startVoiceChat.addEventListener('click', () => {
+        const voiceChatWindow = window.open(
+          VOICEBOT_URL, 
+          'LorentVoiceBot', 
+          'width=900,height=700,scrollbars=yes,resizable=yes,status=yes,menubar=no,toolbar=no'
+        );
+        
+        if (voiceChatWindow) {
+          voiceChatWindow.focus();
+          chatBox.classList.add('hidden');
+        } else {
+          alert('Please allow popups to access the chat feature.');
+        }
+      });
+    }
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Add to cart animation effect
+    function createFlyingCart(event) {
+      const cart = document.querySelector('.basket-link');
+      const button = event.target;
+      const buttonRect = button.getBoundingClientRect();
+      const cartRect = cart.getBoundingClientRect();
+      
+      const flyingElement = document.createElement('div');
+      flyingElement.innerHTML = '🛒';
+      flyingElement.style.position = 'fixed';
+      flyingElement.style.left = buttonRect.left + 'px';
+      flyingElement.style.top = buttonRect.top + 'px';
+      flyingElement.style.fontSize = '2rem';
+      flyingElement.style.zIndex = '10000';
+      flyingElement.style.pointerEvents = 'none';
+      flyingElement.style.transition = 'all 0.8s ease-out';
+      
+      document.body.appendChild(flyingElement);
+      
+      setTimeout(() => {
+        flyingElement.style.left = cartRect.left + 'px';
+        flyingElement.style.top = cartRect.top + 'px';
+        flyingElement.style.transform = 'scale(0.5)';
+        flyingElement.style.opacity = '0';
+      }, 100);
+      
+      setTimeout(() => {
+        document.body.removeChild(flyingElement);
+      }, 900);
+    }
+
+    // Add flying cart animation to all add to cart buttons
+    document.querySelectorAll('.deal-btn').forEach(btn => {
+      btn.addEventListener('click', createFlyingCart);
+    });
+
+    // Exit intent popup (simplified)
+    let exitIntentShown = false;
+    document.addEventListener('mouseleave', (e) => {
+      if (e.clientY <= 0 && !exitIntentShown) {
+        exitIntentShown = true;
+        if (confirm('Wait! Don\'t miss out on these incredible deals! Get an extra 10% off with code SAVE10. Continue shopping?')) {
+          // User clicked OK, keep them on page
+        }
+      }
+    });
+  </script>
+</body>
+</html>
