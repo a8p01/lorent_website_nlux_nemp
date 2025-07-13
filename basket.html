@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shopping Cart | Lorent - Quality Swiss Watches</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Root Variables */
+    :root {
+      --primary-black: #1a1a1a;
+      --soft-black: #2c2c2c;
+      --pure-white: #ffffff;
+      --cream-white: #fefefe;
+      --gold-accent: #d4af37;
+      --light-gray: #f8f8f8;
+      --border-gray: #e8e8e8;
+      
+      --font-primary: 'Playfair Display', serif;
+      --font-secondary: 'Crimson Text', serif;
+    }
+
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--pure-white);
+      color: var(--primary-black);
+      font-family: var(--font-secondary);
+      line-height: 1.7;
+      letter-spacing: 0.3px;
+    }
+
+    /* Header */
+    header {
+      background: var(--pure-white);
+      padding: 2rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-gray);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.02);
+    }
+
+    .logo {
+      font-family: var(--font-primary);
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: var(--primary-black);
+      letter-spacing: 2px;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--primary-black);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    nav a:hover {
+      color: var(--gold-accent);
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 1px;
+      bottom: -5px;
+      left: 50%;
+      background: var(--gold-accent);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    nav a.active {
+      color: var(--gold-accent);
+    }
+
+    nav a.active::after {
+      width: 100%;
+    }
+
+    .basket-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    #basket-count {
+      background: var(--gold-accent);
+      color: var(--pure-white);
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 6rem 3rem 4rem;
+      text-align: center;
+      background: linear-gradient(135deg, var(--cream-white) 0%, var(--light-gray) 100%);
+    }
+
+    .hero h1 {
+      font-family: var(--font-primary);
+      font-size: 4rem;
+      font-weight: 400;
+      color: var(--primary-black);
+      margin-bottom: 2rem;
+      letter-spacing: 3px;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      color: var(--soft-black);
+      max-width: 600px;
+      margin: 0 auto;
+      font-weight: 400;
+    }
+
+    /* Main Content */
+    .main-content {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 6rem 3rem;
+    }
+
+    .basket-container {
+      background: var(--pure-white);
+      border: 1px solid var(--border-gray);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+    }
+
+    .basket-header {
+      background: var(--light-gray);
+      padding: 2rem;
+      border-bottom: 1px solid var(--border-gray);
+    }
+
+    .basket-header h2 {
+      font-family: var(--font-primary);
+      font-size: 2rem;
+      font-weight: 500;
+      color: var(--primary-black);
+      margin-bottom: 0.5rem;
+      letter-spacing: 1px;
+    }
+
+    .basket-header p {
+      color: var(--soft-black);
+      font-size: 1.1rem;
+    }
+
+    .basket-items {
+      padding: 2rem;
+      min-height: 400px;
+    }
+
+    .empty-basket {
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+
+    .empty-basket h3 {
+      font-family: var(--font-primary);
+      font-size: 1.8rem;
+      color: var(--soft-black);
+      margin-bottom: 1rem;
+      font-weight: 400;
+    }
+
+    .empty-basket p {
+      color: var(--soft-black);
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+    }
+
+    .empty-basket-icon {
+      font-size: 4rem;
+      margin-bottom: 2rem;
+      opacity: 0.3;
+    }
+
+    .basket-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem;
+      border-bottom: 1px solid var(--border-gray);
+      transition: background 0.3s ease;
+    }
+
+    .basket-item:hover {
+      background: var(--light-gray);
+    }
+
+    .basket-item:last-child {
+      border-bottom: none;
+    }
+
+    .item-info {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .item-icon {
+      font-size: 2rem;
+      color: var(--gold-accent);
+    }
+
+    .item-details h4 {
+      font-family: var(--font-primary);
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--primary-black);
+      margin-bottom: 0.3rem;
+    }
+
+    .item-details p {
+      color: var(--soft-black);
+      font-size: 0.9rem;
+    }
+
+    .item-status {
+      color: var(--gold-accent);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.9rem;
+    }
+
+    .remove-item {
+      background: none;
+      border: none;
+      color: var(--soft-black);
+      cursor: pointer;
+      font-size: 1.2rem;
+      padding: 0.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .remove-item:hover {
+      color: #dc3545;
+    }
+
+    .basket-actions {
+      padding: 2rem;
+      background: var(--light-gray);
+      border-top: 1px solid var(--border-gray);
+      text-align: center;
+    }
+
+    .action-btn {
+      padding: 1rem 2.5rem;
+      text-decoration: none;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: all 0.4s ease;
+      border: 2px solid var(--primary-black);
+      font-family: var(--font-secondary);
+      background: transparent;
+      color: var(--primary-black);
+      cursor: pointer;
+      margin: 0 1rem;
+    }
+
+    .action-btn:hover {
+      background: var(--primary-black);
+      color: var(--pure-white);
+      transform: translateY(-2px);
+    }
+
+    .action-btn.clear {
+      border-color: #dc3545;
+      color: #dc3545;
+    }
+
+    .action-btn.clear:hover {
+      background: #dc3545;
+      color: var(--pure-white);
+    }
+
+    .continue-shopping {
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    .continue-btn {
+      padding: 1.2rem 3rem;
+      text-decoration: none;
+      font-size: 1rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: all 0.4s ease;
+      border: 2px solid var(--gold-accent);
+      font-family: var(--font-secondary);
+      background: var(--gold-accent);
+      color: var(--primary-black);
+    }
+
+    .continue-btn:hover {
+      background: transparent;
+      color: var(--gold-accent);
+      transform: translateY(-2px);
+    }
+
+    /* Note Section */
+    .consultation-note {
+      background: var(--light-gray);
+      padding: 3rem;
+      margin-top: 4rem;
+      border-radius: 8px;
+      text-align: center;
+      border: 1px solid var(--border-gray);
+    }
+
+    .consultation-note h3 {
+      font-family: var(--font-primary);
+      font-size: 1.8rem;
+      color: var(--primary-black);
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    .consultation-note p {
+      color: var(--soft-black);
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    /* Enhanced Chat Styles - More Noticeable */
+    #chat-icon {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      background: linear-gradient(135deg, var(--gold-accent), #e6c758);
+      color: var(--primary-black);
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      font-size: 1.8rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      z-index: 2000;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+      animation: pulse 2s infinite;
+      border: 3px solid var(--pure-white);
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+      }
+      50% {
+        box-shadow: 0 8px 35px rgba(212, 175, 55, 0.7);
+        transform: scale(1.05);
+      }
+      100% {
+        box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+      }
+    }
+
+    #chat-icon:hover {
+      background: linear-gradient(135deg, #e6c758, var(--gold-accent));
+      transform: scale(1.1);
+      animation: none;
+    }
+
+    #chat-box {
+      position: fixed;
+      bottom: 120px;
+      right: 36px;
+      width: 380px;
+      background: var(--pure-white);
+      color: var(--primary-black);
+      border-radius: 8px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      z-index: 2000;
+      overflow: hidden;
+      border: 1px solid var(--border-gray);
+    }
+
+    #chat-box.hidden {
+      display: none;
+    }
+
+    .chat-header {
+      background: linear-gradient(135deg, var(--primary-black), var(--soft-black));
+      color: var(--pure-white);
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .chat-header h3 {
+      font-family: var(--font-primary);
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .chat-header p {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    .chat-body {
+      padding: 2rem;
+    }
+
+    .chat-option {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      padding: 1.5rem;
+      background: var(--light-gray);
+      border-radius: 4px;
+      transition: background 0.3s ease;
+    }
+
+    .chat-option:hover {
+      background: var(--border-gray);
+    }
+
+    .option-icon {
+      font-size: 2rem;
+    }
+
+    .option-content h4 {
+      font-family: var(--font-primary);
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary-black);
+    }
+
+    .option-content p {
+      font-size: 0.9rem;
+      color: var(--soft-black);
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .voice-chat-btn {
+      background: var(--gold-accent);
+      color: var(--primary-black);
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      font-family: var(--font-secondary);
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .voice-chat-btn:hover {
+      background: #e6c758;
+    }
+
+    #close-chat {
+      width: 100%;
+      background: var(--light-gray);
+      color: var(--primary-black);
+      border: none;
+      padding: 1rem;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s ease;
+      border-top: 1px solid var(--border-gray);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    #close-chat:hover {
+      background: var(--border-gray);
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      header {
+        padding: 1.5rem;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      nav {
+        gap: 1.5rem;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+      }
+
+      .main-content {
+        padding: 4rem 1.5rem;
+      }
+
+      .basket-item {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+
+      .action-btn {
+        margin: 0.5rem;
+      }
+
+      #chat-box {
+        width: calc(100vw - 40px);
+        right: 20px;
+        left: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">LORENT</a>
+    <nav>
+      <a href="collections.html">Collections</a>
+      <a href="about.html">Company</a>
+      <a href="basket.html" class="basket-link active">
+        <span>🛒</span>
+        <span id="basket-count">0</span>
+      </a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>YOUR CART</h1>
+      <p>Review your selected watches and save big! Free shipping on orders over $99 plus instant discounts at checkout.</p>
+    </section>
+
+    <div class="main-content">
+      <div class="basket-container">
+        <div class="basket-header">
+          <h2>Shopping Cart</h2>
+          <p>Great deals on quality watches - Limited time offers!</p>
+        </div>
+        
+        <div class="basket-items" id="basket-items">
+          <div class="empty-basket">
+            <div class="empty-basket-icon">🛒</div>
+            <h3>Your Cart is Empty</h3>
+            <p>Browse our collections to find your perfect Swiss watch</p>
+          </div>
+        </div>
+
+        <div class="basket-actions" id="basket-actions" style="display: none;">
+          <button class="action-btn clear" onclick="clearBasket()">Clear Cart</button>
+          <button class="action-btn" onclick="checkout()">Proceed to Checkout</button>
+          <p style="margin-top: 1rem; color: var(--soft-black); font-style: italic;">
+            Free shipping over $99 • 30-day returns • Price match guarantee
+          </p>
+        </div>
+      </div>
+
+      <div class="continue-shopping">
+        <a href="collections.html" class="continue-btn">Continue Shopping</a>
+      </div>
+
+      <div class="consultation-note">
+        <h3>Questions About Your Order?</h3>
+        <p>Our customer service team can help with sizing, shipping, or finding additional deals. Contact us for price matching or bulk discounts on multiple watches.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Chat integration -->
+  <div id="chat-icon">💬</div>
+  <div id="chat-box" class="hidden">
+    <div class="chat-header">
+      <h3>Lorent Support</h3>
+      <p>Get help choosing your perfect watch</p>
+    </div>
+    <div class="chat-body">
+      <div class="chat-option">
+        <div class="option-icon">🎤</div>
+        <div class="option-content">
+          <h4>Watch Advice</h4>
+          <p>Talk to our voice assistant about finding the right watch for you</p>
+          <button id="start-voice-chat" class="voice-chat-btn">Start Chat</button>
+        </div>
+      </div>
+    </div>
+    <button id="close-chat">Close</button>
+  </div>
+
+  <script>
+    // Load basket from localStorage
+    let basketItems = JSON.parse(localStorage.getItem('basketItems')) || [];
+    let basketCount = parseInt(localStorage.getItem('basketCount')) || 0;
+    
+    // Update basket count display
+    document.getElementById('basket-count').textContent = basketCount;
+
+    // Watch data for detailed information
+    const watchDetails = {
+      'Linea': 'Classic Collection - White rectangular dial, silver stainless steel case',
+      'Serene': 'Classic Collection - White rectangular dial, gold-tone case, brown leather strap',
+      'Sheffield': 'Classic Collection - Eggshell white round dial, silver case, black leather strap',
+      'Winchester': 'Classic Collection - Eggshell round dial, silver case, brown leather strap',
+      'Ophelia': 'Contemporary Collection - White oval dial, gold stainless steel case and bracelet',
+      'Eterna': 'Contemporary Collection - Eggshell dial, full polished steel construction',
+      'Lunaire Noir': 'Contemporary Collection - Mirror black dial, black steel case & mesh strap',
+      'Lunaire Rose': 'Contemporary Collection - Rose mirror dial, rose gold steel case and mesh strap',
+      'Explorer': 'Sport Collection - 42mm steel case, black dial, automatic, WR 200m',
+      'Diver Master': 'Sport Collection - 44mm steel, blue dial, helium valve, automatic, WR 500m',
+      'Field Ranger': 'Sport Collection - 41mm matte steel, green dial, fabric strap, WR 150m',
+      'Nightfall': 'Sport Collection - Black enamel dial, black steel case, automatic, 9.5mm',
+      'Luna': 'Special Collection - Mother-of-pearl dial, pink gold with diamonds, alligator strap',
+      'Commander': 'Special Collection - Amber sunray dial, rose gold case, rose strap',
+      'Volt': 'Special Collection - Digital quartz, translucent green bio-plastic, multifunction',
+      'Dynastia': 'Special Collection - Enamel dial with Chinese motif, white gold, automatic'
+    };
+
+    function displayBasket() {
+      const basketItemsContainer = document.getElementById('basket-items');
+      const basketActions = document.getElementById('basket-actions');
+      
+      if (basketItems.length === 0) {
+        basketItemsContainer.innerHTML = `
+          <div class="empty-basket">
+            <div class="empty-basket-icon">🛒</div>
+            <h3>Your Cart is Empty</h3>
+            <p>Browse our collections to find your perfect Swiss watch</p>
+          </div>
+        `;
+        basketActions.style.display = 'none';
+        return;
+      }
+
+      // Count occurrences of each item
+      const itemCounts = {};
+      basketItems.forEach(item => {
+        itemCounts[item] = (itemCounts[item] || 0) + 1;
+      });
+
+      basketItemsContainer.innerHTML = '';
+      basketActions.style.display = 'block';
+
+      Object.keys(itemCounts).forEach(itemName => {
+        const count = itemCounts[itemName];
+        const detail = watchDetails[itemName] || 'Lorent Timepiece';
+        
+        const itemElement = document.createElement('div');
+        itemElement.className = 'basket-item';
+        itemElement.innerHTML = `
+          <div class="item-info">
+            <div class="item-icon">⌚</div>
+            <div class="item-details">
+              <h4>${itemName}</h4>
+              <p>${detail}</p>
+              ${count > 1 ? `<p style="color: var(--gold-accent); font-weight: 600;">Quantity: ${count}</p>` : ''}
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div class="item-status">In Cart</div>
+            <button class="remove-item" onclick="removeItem('${itemName}')" title="Remove from cart">×</button>
+          </div>
+        `;
+        basketItemsContainer.appendChild(itemElement);
+      });
+    }
+
+    function removeItem(itemName) {
+      // Remove all instances of this item
+      basketItems = basketItems.filter(item => item !== itemName);
+      basketCount = basketItems.length;
+      
+      // Update localStorage
+      localStorage.setItem('basketItems', JSON.stringify(basketItems));
+      localStorage.setItem('basketCount', basketCount);
+      
+      // Update display
+      document.getElementById('basket-count').textContent = basketCount;
+      displayBasket();
+    }
+
+    function clearBasket() {
+      if (confirm('Are you sure you want to clear your cart?')) {
+        basketItems = [];
+        basketCount = 0;
+        
+        // Update localStorage
+        localStorage.setItem('basketItems', JSON.stringify(basketItems));
+        localStorage.setItem('basketCount', basketCount);
+        
+        // Update display
+        document.getElementById('basket-count').textContent = basketCount;
+        displayBasket();
+      }
+    }
+
+    function checkout() {
+      if (basketItems.length === 0) {
+        alert('Your cart is empty. Please add some watches before checkout.');
+        return;
+      }
+      
+      alert('Checkout functionality coming soon! Contact our support team to complete your purchase.');
+    }
+
+    // Display basket on page load
+    displayBasket();
+
+    // Voicebot integration
+    const VOICEBOT_URL = 'https://lorentvoicebot.vercel.app/?config_id=0359ded1-a9cd-4330-8709-3a0fd9c53419';
+
+    // Floating chat icon logic
+    const chatIcon = document.getElementById('chat-icon');
+    const chatBox = document.getElementById('chat-box');
+    const closeChat = document.getElementById('close-chat');
+    const startVoiceChat = document.getElementById('start-voice-chat');
+
+    chatIcon.addEventListener('click', () => {
+      chatBox.classList.toggle('hidden');
+    });
+
+    closeChat.addEventListener('click', () => {
+      chatBox.classList.add('hidden');
+    });
+
+    // Handle voice chat button click
+    if (startVoiceChat) {
+      startVoiceChat.addEventListener('click', () => {
+        const voiceChatWindow = window.open(
+          VOICEBOT_URL, 
+          'LorentVoiceBot', 
+          'width=900,height=700,scrollbars=yes,resizable=yes,status=yes,menubar=no,toolbar=no'
+        );
+        
+        if (voiceChatWindow) {
+          voiceChatWindow.focus();
+          chatBox.classList.add('hidden');
+        } else {
+          alert('Please allow popups to access the consultation feature.');
+        }
+      });
+    }
+  </script>
+</body>
+</html>

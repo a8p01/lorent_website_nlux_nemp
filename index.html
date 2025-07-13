@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lorent | Quality Swiss Watches for Everyone</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Root Variables */
+    :root {
+      --primary-black: #1a1a1a;
+      --soft-black: #2c2c2c;
+      --pure-white: #ffffff;
+      --cream-white: #fefefe;
+      --gold-accent: #d4af37;
+      --light-gray: #f8f8f8;
+      --border-gray: #e8e8e8;
+      --deep-navy: #0f1419;
+      
+      --font-primary: 'Playfair Display', serif;
+      --font-secondary: 'Crimson Text', serif;
+    }
+
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--pure-white);
+      color: var(--primary-black);
+      font-family: var(--font-secondary);
+      line-height: 1.7;
+      letter-spacing: 0.3px;
+      overflow-x: hidden;
+    }
+
+    /* Header */
+    header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 2rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .logo {
+      font-family: var(--font-primary);
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: var(--primary-black);
+      letter-spacing: 2px;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--primary-black);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    nav a:hover {
+      color: var(--gold-accent);
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 1px;
+      bottom: -5px;
+      left: 50%;
+      background: var(--gold-accent);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .basket-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    #basket-count {
+      background: var(--gold-accent);
+      color: var(--pure-white);
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* Hero Section */
+.hero {
+  height: 100vh;
+  background: url('other_images/home.avif') center center / cover no-repeat;
+  color: var(--pure-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* dark overlay */
+  z-index: 1;
+}
+
+    .hero-content {
+      max-width: 800px;
+      z-index: 2;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-family: var(--font-primary);
+      font-size: 5rem;
+      font-weight: 300;
+      margin-bottom: 2rem;
+      letter-spacing: 4px;
+      opacity: 0;
+      animation: fadeInUp 1.2s ease 0.5s forwards;
+    }
+
+    .hero-subtitle {
+      font-size: 1.5rem;
+      margin-bottom: 3rem;
+      opacity: 0.9;
+      font-weight: 300;
+      letter-spacing: 2px;
+      opacity: 0;
+      animation: fadeInUp 1.2s ease 0.8s forwards;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      opacity: 0;
+      animation: fadeInUp 1.2s ease 1.1s forwards;
+    }
+
+    .cta-btn {
+      padding: 1.2rem 3rem;
+      text-decoration: none;
+      font-size: 1rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: all 0.4s ease;
+      border: 2px solid var(--gold-accent);
+      font-family: var(--font-secondary);
+    }
+
+    .cta-primary {
+      background: var(--gold-accent);
+      color: var(--primary-black);
+    }
+
+    .cta-primary:hover {
+      background: transparent;
+      color: var(--gold-accent);
+      transform: translateY(-2px);
+    }
+
+    .cta-secondary {
+      background: transparent;
+      color: var(--gold-accent);
+    }
+
+    .cta-secondary:hover {
+      background: var(--gold-accent);
+      color: var(--primary-black);
+      transform: translateY(-2px);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Heritage Story Section */
+    .heritage-story {
+      padding: 8rem 3rem;
+      background: var(--pure-white);
+      position: relative;
+    }
+
+    .heritage-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .story-text h2 {
+      font-family: var(--font-primary);
+      font-size: 3.5rem;
+      font-weight: 300;
+      margin-bottom: 2rem;
+      color: var(--primary-black);
+      letter-spacing: 2px;
+      line-height: 1.2;
+    }
+
+    .story-text .year {
+      color: var(--gold-accent);
+      font-size: 4rem;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .story-text p {
+      font-size: 1.2rem;
+      color: var(--soft-black);
+      margin-bottom: 2rem;
+      line-height: 1.8;
+    }
+
+    .story-highlight {
+      background: var(--light-gray);
+      padding: 2rem;
+      border-left: 4px solid var(--gold-accent);
+      font-style: italic;
+      font-size: 1.1rem;
+    }
+
+
+   .story-visual {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  overflow: hidden; /* important: prevents overflow */
+}
+
+.story-visual img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* or 'cover' if you want it to fill the area */
+  display: block;
+}
+
+    /* Practical Services Section */
+    .luxury-services {
+      padding: 8rem 3rem;
+      background: var(--light-gray);
+    }
+
+    .services-header {
+      text-align: center;
+      margin-bottom: 6rem;
+    }
+
+    .services-header h2 {
+      font-family: var(--font-primary);
+      font-size: 3rem;
+      font-weight: 400;
+      color: var(--primary-black);
+      margin-bottom: 2rem;
+      letter-spacing: 2px;
+    }
+
+    .services-header p {
+      font-size: 1.3rem;
+      color: var(--soft-black);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    .services-grid {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 4rem;
+    }
+
+    .service-card {
+      background: var(--pure-white);
+      padding: 3rem;
+      text-align: center;
+      border-radius: 8px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+      border: 1px solid var(--border-gray);
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+    }
+
+    .service-icon {
+      font-size: 4rem;
+      margin-bottom: 2rem;
+      display: block;
+    }
+
+    .service-card h3 {
+      font-family: var(--font-primary);
+      font-size: 1.8rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      color: var(--primary-black);
+      letter-spacing: 1px;
+    }
+
+    .service-card p {
+      color: var(--soft-black);
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .service-link {
+      color: var(--gold-accent);
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s ease;
+    }
+
+    .service-link:hover {
+      border-color: var(--gold-accent);
+    }
+
+    /* Collections Preview */
+    .collections-preview {
+      padding: 8rem 3rem;
+      background: var(--pure-white);
+      text-align: center;
+    }
+
+    .collections-header h2 {
+      font-family: var(--font-primary);
+      font-size: 3rem;
+      font-weight: 400;
+      color: var(--primary-black);
+      margin-bottom: 2rem;
+      letter-spacing: 2px;
+    }
+
+    .collections-header p {
+      font-size: 1.2rem;
+      color: var(--soft-black);
+      max-width: 700px;
+      margin: 0 auto 4rem;
+      line-height: 1.8;
+    }
+
+    .collections-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .collection-preview {
+      position: relative;
+      height: 300px;
+      background: var(--light-gray);
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border-gray);
+    }
+
+    .collection-preview:hover {
+      transform: scale(1.02);
+    }
+
+  .collection-preview::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.4));
+  z-index: 1;
+}
+
+.collection-preview h3 {
+  font-family: var(--font-primary);
+  font-size: 2rem;
+  font-weight: 500;
+  color: white; /* Changed from var(--primary-black) */
+  z-index: 2;
+  position: relative;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* Optional: soft shadow for extra contrast */
+}
+
+    .view-all-btn {
+      margin-top: 4rem;
+    }
+
+    .classic-bg {
+  background-image: url('watch_images/Sheffield.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.contemporary-bg {
+  background-image: url('watch_images/Lunaire Rose.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.sport-bg {
+  background-image: url('watch_images/Dive\ Master.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.special-bg {
+  background-image: url('watch_images/Dynastia.png');
+  background-size: cover;
+  background-position: center;
+}
+
+
+   /* Find a Store Section */
+    .boutique-section {
+      padding: 8rem 3rem;
+      background: var(--deep-navy);
+      color: var(--pure-white);
+    }
+
+    .boutique-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .boutique-visual {
+    width: 100%;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  overflow: hidden; /* important: prevents overflow */
+    }
+
+    .boutique-visual img {
+    max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* or 'cover' if you want it to fill the area */
+  display: block;
+    }
+
+    .boutique-text h2 {
+      font-family: var(--font-primary);
+      font-size: 3.5rem;
+      font-weight: 300;
+      margin-bottom: 2rem;
+      color: var(--pure-white);
+      letter-spacing: 2px;
+      line-height: 1.2;
+    }
+
+    .boutique-text p {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 2rem;
+      line-height: 1.8;
+    }
+
+    .boutique-locations {
+      margin-bottom: 3rem;
+    }
+
+    .location-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .location-item:last-child {
+      border-bottom: none;
+    }
+
+    .location-icon {
+      font-size: 1.5rem;
+      margin-right: 1rem;
+      color: var(--gold-accent);
+    }
+
+    .location-details h4 {
+      font-family: var(--font-primary);
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+      color: var(--pure-white);
+    }
+
+    .location-details p {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.7);
+      margin: 0;
+    }
+
+    .boutique-cta {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .boutique-btn {
+      padding: 1rem 2.5rem;
+      text-decoration: none;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: all 0.4s ease;
+      border: 2px solid var(--gold-accent);
+      font-family: var(--font-secondary);
+      color: var(--gold-accent);
+      background: transparent;
+    }
+
+    .boutique-btn:hover {
+      background: var(--gold-accent);
+      color: var(--primary-black);
+      transform: translateY(-2px);
+    }
+
+    .boutique-btn.primary {
+      background: var(--gold-accent);
+      color: var(--primary-black);
+    }
+
+    .boutique-btn.primary:hover {
+      background: transparent;
+      color: var(--gold-accent);
+    }
+
+    /* Enhanced Chat Styles - More Noticeable */
+    #chat-icon {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      background: linear-gradient(135deg, var(--gold-accent), #e6c758);
+      color: var(--primary-black);
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      font-size: 1.8rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      z-index: 2000;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+      animation: pulse 2s infinite;
+      border: 3px solid var(--pure-white);
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+      }
+      50% {
+        box-shadow: 0 8px 35px rgba(212, 175, 55, 0.7);
+        transform: scale(1.05);
+      }
+      100% {
+        box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+      }
+    }
+
+    #chat-icon:hover {
+      background: linear-gradient(135deg, #e6c758, var(--gold-accent));
+      transform: scale(1.1);
+      animation: none;
+    }
+
+    #chat-box {
+      position: fixed;
+      bottom: 120px;
+      right: 36px;
+      width: 380px;
+      background: var(--pure-white);
+      color: var(--primary-black);
+      border-radius: 8px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      z-index: 2000;
+      overflow: hidden;
+      border: 1px solid var(--border-gray);
+    }
+
+    #chat-box.hidden {
+      display: none;
+    }
+
+    .chat-header {
+      background: linear-gradient(135deg, var(--primary-black), var(--soft-black));
+      color: var(--pure-white);
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .chat-header h3 {
+      font-family: var(--font-primary);
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .chat-header p {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    .chat-body {
+      padding: 2rem;
+    }
+
+    .chat-option {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      padding: 1.5rem;
+      background: var(--light-gray);
+      border-radius: 4px;
+      transition: background 0.3s ease;
+    }
+
+    .chat-option:hover {
+      background: var(--border-gray);
+    }
+
+    .option-icon {
+      font-size: 2rem;
+    }
+
+    .option-content h4 {
+      font-family: var(--font-primary);
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary-black);
+    }
+
+    .option-content p {
+      font-size: 0.9rem;
+      color: var(--soft-black);
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .voice-chat-btn {
+      background: var(--gold-accent);
+      color: var(--primary-black);
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      font-family: var(--font-secondary);
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .voice-chat-btn:hover {
+      background: #e6c758;
+    }
+
+    #close-chat {
+      width: 100%;
+      background: var(--light-gray);
+      color: var(--primary-black);
+      border: none;
+      padding: 1rem;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s ease;
+      border-top: 1px solid var(--border-gray);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    #close-chat:hover {
+      background: var(--border-gray);
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      header {
+        padding: 1.5rem;
+        flex-direction: column;
+        gap: 1rem;
+        position: relative;
+      }
+
+      nav {
+        gap: 1.5rem;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.2rem;
+      }
+
+      .hero-cta {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .heritage-content,
+      .services-grid,
+      .collections-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .story-text h2 {
+        font-size: 2.5rem;
+      }
+
+      .services-header h2,
+      .collections-header h2,
+      .values-section h2 {
+        font-size: 2.2rem;
+      }
+
+      #chat-box {
+        width: calc(100vw - 40px);
+        right: 20px;
+        left: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">LORENT</a>
+    <nav>
+      <a href="collections.html">Collections</a>
+      <a href="about.html">Company</a>
+      <a href="basket.html" class="basket-link">
+        <span>🛒</span>
+        <span id="basket-count">0</span>
+      </a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>LORENT</h1>
+        <p class="hero-subtitle">Affordable Quality Watches - Up to 50% Off</p>
+        <div class="hero-cta">
+          <a href="collections.html" class="cta-btn cta-secondary">Shop Watches</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Heritage Story -->
+    <section class="heritage-story">
+      <div class="heritage-content">
+        <div class="story-text">
+          <h2>Born in Switzerland.</h2>
+          <h2>Worn everywhere.</h2>
+          <p>Lorent focuses on making quality watches that everyone can afford. We use efficient manufacturing and smart design to keep costs low while maintaining reliability and style.</p>
+          <p>Our modern facility produces thousands of watches each month, allowing us to offer competitive prices and frequent sales. We believe great design shouldn't cost a fortune.</p>
+          <div class="story-highlight">
+            <p>"Quality watches for real people at prices that make sense."</p>
+          </div>
+        </div>
+        <div class="story-visual"><img src="other_images/home_2.png"></div>
+      </div>
+    </section>
+
+    <!-- Collections Preview -->
+    <section class="collections-preview">
+      <div class="collections-header">
+        <h2>OUR COLLECTIONS</h2>
+        <p>Four versatile collections designed for different lifestyles and occasions, all offering Swiss quality at fair prices.</p>
+      </div>
+<div class="collections-grid">
+  <div class="collection-preview classic-bg" onclick="location.href='collections.html#classic'">
+    <h3>CLASSIC</h3>
+  </div>
+  <div class="collection-preview contemporary-bg" onclick="location.href='collections.html#contemporary'">
+    <h3>CONTEMPORARY</h3>
+  </div>
+  <div class="collection-preview sport-bg" onclick="location.href='collections.html#sport'">
+    <h3>SPORT</h3>
+  </div>
+  <div class="collection-preview special-bg" onclick="location.href='collections.html#special'">
+    <h3>SPECIAL</h3>
+  </div>
+</div>
+      <div class="view-all-btn">
+        <a href="collections.html" class="cta-btn cta-primary">View All Collections</a>
+      </div>
+    </section>
+
+    <!-- Practical Services -->
+    <section id="services" class="luxury-services">
+      <div class="services-header">
+        <h2>CUSTOMER BENEFITS</h2>
+        <p>Great deals, fast service, and unbeatable value. Shopping for watches made simple and affordable.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <span class="service-icon">📞</span>
+          <h3>Customer Support</h3>
+          <p>Friendly assistance with questions about our watches, sizing, and features. Our team is here to help you make the right choice.</p>
+          <a href="#" class="service-link">Contact Us</a>
+        </div>
+
+        <div class="service-card">
+          <span class="service-icon">🚚</span>
+          <h3>Free Shipping</h3>
+          <p>Complimentary shipping on all orders with secure packaging and tracking. Get your new watch delivered safely to your door.</p>
+          <a href="#" class="service-link">Shipping Info</a>
+        </div>
+
+        <div class="service-card">
+          <span class="service-icon">🔧</span>
+          <h3>Watch Maintenance</h3>
+          <p>Professional servicing and repairs to keep your Lorent watch running accurately. Fair pricing on all maintenance services.</p>
+          <a href="#" class="service-link">Service Center</a>
+        </div>
+
+        <div class="service-card">
+          <span class="service-icon">↩️</span>
+          <h3>Easy Returns</h3>
+          <p>30-day return policy if you're not completely satisfied. Simple return process with prepaid shipping labels.</p>
+          <a href="#" class="service-link">Return Policy</a>
+        </div>
+
+        <div class="service-card">
+          <span class="service-icon">🛡️</span>
+          <h3>2-Year Warranty</h3>
+          <p>Comprehensive warranty coverage on all movements and materials. Peace of mind with every purchase.</p>
+          <a href="#" class="service-link">Warranty Details</a>
+        </div>
+
+        <div class="service-card">
+          <span class="service-icon">💳</span>
+          <h3>Flexible Payment</h3>
+          <p>Multiple payment options including installment plans to make quality Swiss watches more accessible to everyone.</p>
+          <a href="#" class="service-link">Payment Options</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Find a Store Section -->
+    <section class="boutique-section">
+      <div class="boutique-content">
+        <div class="boutique-visual">
+          <img src="other_images/store.jpg" alt="Lorent Store">
+        </div>
+        <div class="boutique-text">
+          <h2>VISIT OUR STORES</h2>
+          <p>Try on our watches in person at our welcoming stores across Switzerland. Our knowledgeable staff will help you find the perfect timepiece for your needs and budget.</p>
+          
+          <div class="boutique-locations">
+            <div class="location-item">
+              <span class="location-icon">📍</span>
+              <div class="location-details">
+                <h4>Geneva Store</h4>
+                <p>Rue du Rhône 42, 1204 Geneva</p>
+              </div>
+            </div>
+            <div class="location-item">
+              <span class="location-icon">📍</span>
+              <div class="location-details">
+                <h4>Zurich Store</h4>
+                <p>Bahnhofstrasse 88, 8001 Zurich</p>
+              </div>
+            </div>
+            <div class="location-item">
+              <span class="location-icon">📍</span>
+              <div class="location-details">
+                <h4>Basel Store</h4>
+                <p>Freie Strasse 25, 4001 Basel</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="boutique-cta">
+            <a href="#" class="boutique-btn primary">Visit Store</a>
+            <a href="#" class="boutique-btn">Find Location</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Chat integration -->
+  <div id="chat-icon">💬</div>
+  <div id="chat-box" class="hidden">
+    <div class="chat-header">
+      <h3>Lorent Support</h3>
+      <p>Get help choosing your perfect watch</p>
+    </div>
+    <div class="chat-body">
+      <div class="chat-option">
+        <div class="option-icon">🎤</div>
+        <div class="option-content">
+          <h4>Watch Advice</h4>
+          <p>Talk to our voice assistant about finding the right watch for you</p>
+          <button id="start-voice-chat" class="voice-chat-btn">Start Chat</button>
+        </div>
+      </div>
+    </div>
+    <button id="close-chat">Close</button>
+  </div>
+
+    <script>
+    // Shopping basket functionality with localStorage
+    let basketCount = parseInt(localStorage.getItem('basketCount')) || 0;
+    const basketCountElem = document.getElementById('basket-count');
+    basketCountElem.textContent = basketCount;
+
+    // Voicebot integration
+    const VOICEBOT_URL = 'https://lorentvoicebot.vercel.app/?config_id=0359ded1-a9cd-4330-8709-3a0fd9c53419';
+
+    // Floating chat icon logic
+    const chatIcon = document.getElementById('chat-icon');
+    const chatBox = document.getElementById('chat-box');
+    const closeChat = document.getElementById('close-chat');
+    const startVoiceChat = document.getElementById('start-voice-chat');
+
+    chatIcon.addEventListener('click', () => {
+      chatBox.classList.toggle('hidden');
+    });
+
+    closeChat.addEventListener('click', () => {
+      chatBox.classList.add('hidden');
+    });
+
+    // Handle voice chat button click
+    if (startVoiceChat) {
+      startVoiceChat.addEventListener('click', () => {
+        const voiceChatWindow = window.open(
+          VOICEBOT_URL, 
+          'LorentVoiceBot', 
+          'width=900,height=700,scrollbars=yes,resizable=yes,status=yes,menubar=no,toolbar=no'
+        );
+        
+        if (voiceChatWindow) {
+          voiceChatWindow.focus();
+          chatBox.classList.add('hidden');
+        } else {
+          alert('Please allow popups to access the consultation feature.');
+        }
+      });
+    }
+  </script>
+</body>
+</html>
